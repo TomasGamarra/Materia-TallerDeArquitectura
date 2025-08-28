@@ -1,0 +1,32 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=4
+Current Config=compile
+[Configurations]
+compile=DesignTDA
+[Library]
+DesignTDA=.\DesignTDA\DesignTDA.lib
+[$LibMap$]
+DesignTDA=.
+Active_lib=
+[Settings]
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+FLOWTOOLS=NONE
+FAMILY=
+[Files]
+/simple.vhd=-1
+/simple.vhd=-1
+/simple.vhd=-1
+/simple.vhd=-1
+/simple.vhd=-1
+/simple.vhd=-1
+[Files.Data]
+.\src\simple.vhd=VHDL Source Code
+.\src\simple.vhd=VHDL Source Code
+.\src\simple.vhd=VHDL Source Code
+.\src\simple.vhd=VHDL Source Code
+.\src\simple.vhd=VHDL Source Code
+.\src\simple.vhd=VHDL Source Code

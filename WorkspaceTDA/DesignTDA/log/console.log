@@ -1,0 +1,596 @@
+# Design: Design DesignTDA already active.
+# DESIGN: Default Design Language: VHDL
+# DESIGN: Default BDE Language: VHDL
+# DESIGN: Flow Manager: Not Defined
+acom -reorder -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Error: COMP96_0696: simple.vhd : (5, 30): Illegal non-graphic character (<0x93>).
+# Error: COMP96_0696: simple.vhd : (5, 42): Illegal non-graphic character (<0x94>).
+# Error: COMP96_0696: simple.vhd : (6, 29): Illegal non-graphic character (<0x91>).
+# Error: COMP96_0696: simple.vhd : (6, 31): Illegal non-graphic character (<0x91>).
+# Error: COMP96_0696: simple.vhd : (10, 18): Illegal non-graphic character (<0x92>).
+# Error: COMP96_0029: simple.vhd : (5, 30): Expression expected.
+# Error: COMP96_0029: simple.vhd : (6, 29): Expression expected.
+# Error: COMP96_0027: simple.vhd : (10, 18): Discrete range expected.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Error: COMP96_0696: simple.vhd : (6, 29): Illegal non-graphic character (<0x91>).
+# Error: COMP96_0696: simple.vhd : (6, 31): Illegal non-graphic character (<0x91>).
+# Error: COMP96_0010: simple.vhd : (10, 11): Invalid literal.
+# Error: COMP96_0010: simple.vhd : (10, 18): Invalid literal.
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Error: COMP96_0029: simple.vhd : (6, 29): Expression expected.
+# Error: COMP96_0031: simple.vhd : (10, 11): Simple expression expected.
+# Error: COMP96_0019: simple.vhd : (13, 7): Keyword 'process' expected.
+# Error: COMP96_0019: simple.vhd : (14, 2): Keyword 'end' expected.
+# Error: COMP96_0016: simple.vhd : (14, 6): Design unit declaration expected.
+# Compile failure 9 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Error: COMP96_0010: simple.vhd : (10, 11): Invalid literal.
+# Error: COMP96_0010: simple.vhd : (10, 18): Invalid literal.
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Error: COMP96_0031: simple.vhd : (10, 11): Simple expression expected.
+# Error: COMP96_0019: simple.vhd : (13, 7): Keyword 'process' expected.
+# Error: COMP96_0019: simple.vhd : (14, 2): Keyword 'end' expected.
+# Error: COMP96_0016: simple.vhd : (14, 6): Design unit declaration expected.
+# Compile failure 6 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Error: COMP96_0010: simple.vhd : (10, 11): Invalid literal.
+# Error: COMP96_0010: simple.vhd : (10, 18): Invalid literal.
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Error: COMP96_0031: simple.vhd : (10, 11): Simple expression expected.
+# Error: COMP96_0019: simple.vhd : (13, 7): Keyword 'process' expected.
+# Error: COMP96_0019: simple.vhd : (13, 13): Keyword 'end' expected.
+# Error: COMP96_0016: simple.vhd : (14, 2): Design unit declaration expected.
+# Compile failure 6 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Error: COMP96_0019: simple.vhd : (13, 13): Keyword 'end' expected.
+# Error: COMP96_0019: simple.vhd : (14, 2): Keyword 'end' expected.
+# Error: COMP96_0016: simple.vhd : (14, 6): Design unit declaration expected.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.2 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5366 kB (elbread=427 elab2=4804 kernel=134 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  4:16 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# add wave -noreg {/simple/canal}
+# VSIM: 1 object(s) traced.
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run 100 ns
+# KERNEL: stopped at time: 100 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run 1000ns
+# KERNEL: stopped at time: 1100 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run 1000ns
+# KERNEL: stopped at time: 2100 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run 1000ns
+# KERNEL: stopped at time: 3100 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run @4.1us
+# KERNEL: stopped at time: 4100 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run 100ns
+# KERNEL: stopped at time: 4200 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5366 kB (elbread=427 elab2=4804 kernel=134 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  4:25 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run 100ns
+# KERNEL: stopped at time: 100 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Compile success 0 Errors 0 Warnings  Analysis time :  46.0 [ms]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5366 kB (elbread=427 elab2=4804 kernel=134 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  4:27 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+# add wave -noreg {/simple/canal}
+# KERNEL: Warning: KERNEL_0291 Object "/simple/canal" has already been traced.
+# VSIM: 0 object(s) traced.
+# add wave -noreg {/simple/canal}
+# KERNEL: Warning: KERNEL_0291 Object "/simple/canal" has already been traced.
+# VSIM: 0 object(s) traced.
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run 100ns
+# KERNEL: stopped at time: 100 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5366 kB (elbread=427 elab2=4804 kernel=134 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  4:28 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run 100ns
+# KERNEL: stopped at time: 111 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run @211ns
+# KERNEL: stopped at time: 211 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5366 kB (elbread=427 elab2=4804 kernel=134 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  4:29 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5366 kB (elbread=427 elab2=4804 kernel=134 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  4:29 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run 10ns
+# KERNEL: stopped at time: 10 ns
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5366 kB (elbread=427 elab2=4804 kernel=134 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  4:30 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run 100ns
+# KERNEL: stopped at time: 100 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5366 kB (elbread=427 elab2=4804 kernel=134 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  4:30 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run 10ns
+# KERNEL: stopped at time: 10 ns
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5366 kB (elbread=427 elab2=4804 kernel=134 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  4:31 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run 11 ns
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5371 kB (elbread=427 elab2=4806 kernel=138 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  5:05 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5371 kB (elbread=427 elab2=4806 kernel=138 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  5:05 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5371 kB (elbread=427 elab2=4806 kernel=138 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  5:06 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run
+# KERNEL: hola, mundo
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5371 kB (elbread=427 elab2=4806 kernel=138 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  6:18 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+run
+# KERNEL: hola, mundo
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Compile success 0 Errors 0 Warnings  Analysis time :  15.0 [ms]
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5371 kB (elbread=427 elab2=4806 kernel=138 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  6:18 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# add wave -noreg {/simple/canal}
+# VSIM: 1 object(s) traced.
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+run
+# KERNEL: hola, mundo
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5371 kB (elbread=427 elab2=4806 kernel=138 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  6:22 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/Ingenieria en Computacion/Tercer Año/2doSemestre/TallerDeArquitectura/Repositorio/WorkspaceTDA/DesignTDA/src/wave.asdb'.
+# add wave -noreg {/simple/canal}
+# KERNEL: Warning: KERNEL_0291 Object "/simple/canal" has already been traced.
+# VSIM: 0 object(s) traced.
+run
+# KERNEL: 
+# KERNEL: h
+# KERNEL: o
+# KERNEL: l
+# KERNEL: a
+# KERNEL: ,
+# KERNEL:  
+# KERNEL: m
+# KERNEL: u
+# KERNEL: n
+# KERNEL: d
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+acom -O3 -e 100 -work DesignTDA -2002  $dsn/src/simple.vhd
+# Compile Entity "simple"
+# Compile Architecture "prueba" of Entity "simple"
+# Compile success 0 Errors 0 Warnings  Analysis time :  16.0 [ms]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+asim -O5 +access +r +m+simple simple prueba
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5371 kB (elbread=427 elab2=4806 kernel=138 sdf=0)
+# KERNEL: ASDB file was created in location D:\WindowsStuff\Ingenieria en Computacion\Tercer Año\2doSemestre\TallerDeArquitectura\Repositorio\WorkspaceTDA\DesignTDA\src\wave.asdb
+#  6:26 PM, Wednesday, August 27, 2025
+#  Simulation has been initialized
+# add wave -noreg {/simple/canal}
+# VSIM: 1 object(s) traced.
+# Waveform file 'untitled.awc'

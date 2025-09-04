@@ -1,31 +1,31 @@
-Active-HDL 15.0.261.9132 2025-08-27 18:26:53
+Active-HDL 15.0.261.9132 2025-09-03 21:21:29
 
 Elaboration top modules:
-Architecture                  prueba(simple)
+Architecture                  Driver(Test_DFF)
 
 
 ---------------------------------------------------------------------------------------------
 Entity   | Architecture | Library   | Info | Compiler Version          | Compilation Options
 ---------------------------------------------------------------------------------------------
-simple   | prueba       | DesignTDA |      | 15.0.261.9132 (Windows64) | -O3
+Test_DFF | Driver       | designtda |      | 15.0.261.9132 (Windows64) | -O3
+DFF      | flujodedatos | designtda |      | 15.0.261.9132 (Windows64) | -O3
 ---------------------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------------
 VHDL Package            | Library   | Info | Compiler Version          | Compilation Options
 ---------------------------------------------------------------------------------------------
 standard                | std       |      |                           | <unavailable>
-TEXTIO                  | std       |      | 15.0.261.9132 (Windows64) |  -2019
 ---------------------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------------
 Library                 | Comment
 ---------------------------------------------------------------------------------------------
-DesignTDA               | None
+designtda               | None
 std                     | Standard VHDL library
 ---------------------------------------------------------------------------------------------
 
 
-Simulation Options: asim -O5 +access +r +m+simple simple prueba
+Simulation Options: asim -O5 +access +r +m+test_dff test_dff driver
 
 
 The performance of simulation is reduced. Version Student Edition

@@ -18,11 +18,17 @@ FLOWTOOLS=NONE
 FAMILY=
 [Files]
 /simple.vhd=-1
-/practica2.vhd=-1
+/Tp2.vhd=-1
+/Tp3.vhd=-1
+/Tp2.vhd=-1
+/Tp3.vhd=-1
 [Files.Data]
 .\src\simple.vhd=VHDL Source Code
-.\src\practica2.vhd=VHDL Source Code
+.\src\Tp2.vhd=VHDL Source Code
+.\src\Tp3.vhd=VHDL Source Code
+.\src\Tp2.vhd=VHDL Source Code
+.\src\Tp3.vhd=VHDL Source Code
 [HierarchyViewer]
-HierarchyInformation=simple|prueba|0 test_dff|driver|0
+HierarchyInformation=test_dff|driver|0
 ShowHide=ShowTopLevel
 Selected=

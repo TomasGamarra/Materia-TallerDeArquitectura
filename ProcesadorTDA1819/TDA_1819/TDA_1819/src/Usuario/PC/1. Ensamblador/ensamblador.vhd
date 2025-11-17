@@ -125,7 +125,119 @@ begin
 	
 	-- Add your stimulus here ...
 	
-	Main: PROCESS	  
+	Main: PROCESS	 
+	
+	
+PROCEDURE checkInstSk (
+    CONSTANT cadena       : IN STRING;
+    CONSTANT INSTSK_NAME  : IN STRING;
+    CONSTANT INSTSK_CODE  : IN STD_LOGIC_VECTOR(7 downto 0);
+    CONSTANT INSTSK_SIZE  : IN INTEGER;
+    VARIABLE i            : INOUT INTEGER;
+    VARIABLE check        : INOUT BOOLEAN;
+    CONSTANT nombre       : IN STRING;
+    CONSTANT num_linea    : IN INTEGER;
+    CONSTANT addr_linea   : IN INTEGER
+) IS
+    VARIABLE match   : BOOLEAN := TRUE;
+    VARIABLE indice  : INTEGER := i;
+    VARIABLE numReg  : INTEGER;
+BEGIN
+    check := FALSE;
+
+    -- 1. Comparar mnemonico
+    for j in INSTSK_NAME'RANGE loop
+        if (INSTSK_NAME(j) = ' ') then
+            exit;
+        end if;
+        if (cadena(indice) /= INSTSK_NAME(j)) then
+            match := FALSE;
+            exit;
+        end if;
+        indice := indice + 1;
+    end loop;
+    if (not match) then
+        return;
+    end if;
+
+    -- 2. Espacios después del mnemonico
+    if (cadena(indice) /= ' ') then
+        return;
+    end if;
+    while (cadena(indice) = ' ') loop
+        indice := indice + 1;
+    end loop;
+
+    -- 3. Debe empezar con 'r'
+    if (cadena(indice) /= 'r') then
+        report "Error en la línea " & integer'image(num_linea) &
+               " del programa '" & trim(nombre) &
+               "': se esperaba registro después de " & trim(INSTSK_NAME)
+               severity FAILURE;
+    end if;
+    indice := indice + 1;
+
+    -- 4. Parsear número de registro (0-15)
+    if (not isNumber(cadena(indice))) then
+        report "Error en la línea " & integer'image(num_linea) &
+               " del programa '" & trim(nombre) &
+               "': número de registro inválido"
+               severity FAILURE;
+    end if;
+
+    numReg := 0;
+    for j in DIGITS_DEC'RANGE loop
+        if (cadena(indice) = DIGITS_DEC(j)) then
+            numReg := j - 1;
+            exit;
+        end if;
+    end loop;
+    indice := indice + 1;
+
+    -- Soporte r10-r15
+    if (cadena(indice) /= ' ') then
+        if (cadena(indice-1) /= '1') then
+            report "Error en la línea " & integer'image(num_linea) &
+                   " del programa '" & trim(nombre) &
+                   "': registro mal formado"
+                   severity FAILURE;
+        end if;
+        case cadena(indice) is
+            when '0' to '5' =>
+                numReg := 10 + character'pos(cadena(indice)) - character'pos('0');
+                indice := indice + 1;
+            when others =>
+                report "Error en la línea " & integer'image(num_linea) &
+                       " del programa '" & trim(nombre) &
+                       "': registro fuera de rango"
+                       severity FAILURE;
+        end case;
+    end if;
+
+ 
+
+    -- Escritura en memoria de instrucciones
+    InstAddrBusComp <= std_logic_vector(to_unsigned(addr_linea, InstAddrBusComp'length));
+    InstDataBusOutComp <= std_logic_vector(to_unsigned(INSTSK_SIZE, InstDataBusOutComp'length));
+    InstSizeBusComp <= std_logic_vector(to_unsigned(1, InstSizeBusComp'length));
+    InstCtrlBusComp <= WRITE_MEMORY;
+    EnableCompToInstMem <= '1'; wait for 1 ns; EnableCompToInstMem <= '0'; wait for 1 ns;
+
+    InstAddrBusComp <= std_logic_vector(to_unsigned(addr_linea + 1, InstAddrBusComp'length));
+    InstDataBusOutComp <= "ZZZZZZZZZZZZZZZZZZZZZZZZ" & INSTSK_CODE;
+    InstSizeBusComp <= std_logic_vector(to_unsigned(1, InstSizeBusComp'length));
+    InstCtrlBusComp <= WRITE_MEMORY;
+    EnableCompToInstMem <= '1'; wait for 1 ns; EnableCompToInstMem <= '0'; wait for 1 ns;
+
+    InstAddrBusComp <= std_logic_vector(to_unsigned(addr_linea + 2, InstAddrBusComp'length));
+    InstDataBusOutComp <= std_logic_vector(to_unsigned(numReg, InstDataBusOutComp'length));
+    InstSizeBusComp <= std_logic_vector(to_unsigned(1, InstSizeBusComp'length));
+    InstCtrlBusComp <= WRITE_MEMORY;
+    EnableCompToInstMem <= '1'; wait for 1 ns; EnableCompToInstMem <= '0'; wait for 1 ns;
+
+    i := indice;
+    check := TRUE;
+END PROCEDURE checkInstSk;
 	
 	
 	PROCEDURE checkDataBegin(CONSTANT cadena: IN STRING; CONSTANT length: IN INTEGER; 
@@ -1149,89 +1261,6 @@ begin
 			indice := indice + 1;
 		end loop;
 		if (match) then
-			        if (INSTAR_NAME = "pushh " or INSTAR_NAME = "poph ") then
-            if (cadena(indice) /= ' ') then
-                check := false;
-                return;
-            end if;
-            while (cadena(indice) = ' ') loop
-                indice := indice + 1;
-            end loop;
-            
-            -- Para pushh y poph, solo tenemos un operando (registro)
-            if (cadena(indice) /= 'r') then
-                report "Error en la línea " & integer'image(num_linea) & " del programa '" & trim(nombre) & "': el operando debe ser un registro"
-                severity FAILURE;
-            end if;
-            numReg1 := 0;
-            indice := indice + 1;
-            
-            if (not isNumber(cadena(indice))) then
-                report "Error en la línea " & integer'image(num_linea) & " del programa '" & trim(nombre) & "': el registro se encuentra incorrectamente declarado"
-                severity FAILURE;
-            end if;
-            
-            for j in DIGITS_DEC'range loop
-                if (cadena(indice) = DIGITS_DEC(j)) then
-                    numReg1 := numReg1 + j-1;
-                    exit;
-                end if;
-            end loop;
-            indice := indice + 1;
-            
-            -- Verificar si es un registro de dos dígitos
-            if (cadena(indice) /= ' ') then
-                if (cadena(indice-1) /= '1') then
-                    report "Error en la línea " & integer'image(num_linea) & " del programa '" & trim(nombre) & "': el registro se encuentra incorrectamente declarado"
-                    severity FAILURE;
-                end if;
-                case cadena(indice) is
-                    when '0' to '5' =>
-                        for j in DIGITS_DEC'range loop
-                            if (cadena(indice) = DIGITS_DEC(j)) then
-                                numReg1 := 10 + j-1;
-                                exit;
-                            end if;
-                        end loop;
-                        indice := indice + 1;
-                    when others =>
-                        report "Error en la línea " & integer'image(num_linea) & " del programa '" & trim(nombre) & "': el registro se encuentra incorrectamente declarado"
-                        severity FAILURE;
-                end case;
-            end if;
-            
-            -- Codificar instrucción para pushh/poph
-            InstAddrBusComp <= std_logic_vector(to_unsigned(addr_linea, InstAddrBusComp'length));
-            InstDataBusOutComp <= std_logic_vector(to_unsigned(INSTAR_SIZE, InstDataBusOutComp'length));
-            InstSizeBusComp <= std_logic_vector(to_unsigned(1, InstSizeBusComp'length));
-            InstCtrlBusComp <= WRITE_MEMORY;
-            EnableCompToInstMem <= '1';
-            WAIT FOR 1 ns;
-            EnableCompToInstMem <= '0';     
-            WAIT FOR 1 ns;
-            
-            InstAddrBusComp <= std_logic_vector(to_unsigned(addr_linea+1, InstAddrBusComp'length));
-            InstDataBusOutComp <= "ZZZZZZZZZZZZZZZZZZZZZZZZ" & INSTAR_CODE;
-            InstSizeBusComp <= std_logic_vector(to_unsigned(1, InstSizeBusComp'length));
-            InstCtrlBusComp <= WRITE_MEMORY;
-            EnableCompToInstMem <= '1';
-            WAIT FOR 1 ns;
-            EnableCompToInstMem <= '0';     
-            WAIT FOR 1 ns;
-            
-            InstAddrBusComp <= std_logic_vector(to_unsigned(addr_linea+2, InstAddrBusComp'length));
-            InstDataBusOutComp <= std_logic_vector(to_unsigned(numReg1, InstDataBusOutComp'length));
-            InstSizeBusComp <= std_logic_vector(to_unsigned(1, InstSizeBusComp'length));
-            InstCtrlBusComp <= WRITE_MEMORY;
-            EnableCompToInstMem <= '1';
-            WAIT FOR 1 ns;
-            EnableCompToInstMem <= '0'; 
-            WAIT FOR 1 ns;
-            
-            i := indice;
-            check := true;
-            return;
-        end if;
 			if (cadena(indice) /= ' ') then
 				check := false;
 				return;
@@ -2309,6 +2338,19 @@ begin
 					exit;
 				end if;
 			end loop;
+		end if;
+		if (not check) then
+    		for j in INSTSK_NAMES'RANGE loop
+       			 checkInstSk(cadena, INSTSK_NAMES(j), INSTSK_CODES(j), INSTSK_SIZES(j),
+                       i, check, nombre, num_linea, addr_linea);
+        		if (check) then
+            		addr_linea := addr_linea + INSTSK_SIZES(j);
+           			 for k in INSTSK_NAMES(j)'RANGE loop
+                		CompToSM.name_inst(k) <= INSTSK_NAMES(j)(k);
+            		end loop;
+            		exit;
+        		end if;
+    		end loop;
 		end if;
 		if (not check) then
 			report "Error en la línea " & integer'image(num_linea) & " del programa '" & trim(nombre) & "': la instrucción declarada no es válida"

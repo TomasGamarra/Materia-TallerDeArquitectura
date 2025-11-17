@@ -34,10 +34,11 @@ PACKAGE const_ensamblador is
 	CONSTANT CANT_VARIABLES:	INTEGER := 10;
 	CONSTANT CANT_OFFSETS:		INTEGER := 10;
 	CONSTANT CANT_INSTTD:		INTEGER := 13;
-	CONSTANT CANT_INSTAR:		INTEGER := 22;
+	CONSTANT CANT_INSTAR:		INTEGER := 20;
 	CONSTANT CANT_INSTLD:		INTEGER := 15;
 	CONSTANT CANT_INSTTC:		INTEGER := 7;
 	CONSTANT CANT_INSTCT:		INTEGER := 2;
+	CONSTANT CANT_INSTSK: 		INTEGER := 2;
 	
 	CONSTANT IS_STRING: 		INTEGER := 1;
 	CONSTANT IS_STRINGZ:		INTEGER := 2;
@@ -68,9 +69,9 @@ PACKAGE const_ensamblador is
 	CONSTANT INSTTD_CODES:		insttd_code_array(1 to CANT_INSTTD) := (LB, SB, LH, SH, LW, SW, TDA_1819.repert_cpu.LF, SF, MFF, MFR, MRF, TF, TI);
 	CONSTANT INSTTD_SIZES:		insttd_size_array(1 to CANT_INSTTD) := (6, 6, 6, 6, 6, 6, 6, 6, 4, 4, 4, 4, 4);	
 	
-	CONSTANT INSTAR_NAMES: 		instar_name_array(1 to CANT_INSTAR) := ("dadd  ", "daddi ", "daddu ", "daddui", "addf  ", "dsub  ", "dsubu ", "subf  ", "dmul  ", "dmulu ", "mulf  ", "ddiv  ", "ddivu ", "divf  ", "slt   ", "slti  ", "ltf   ", "lef   ", "eqf   ", "neg   ", "pushh ", "poph  ");
-	CONSTANT INSTAR_CODES:		instar_code_array(1 to CANT_INSTAR) := (DADD, DADDI, DADDU, DADDUI, ADDF, DSUB, DSUBU, SUBF, DMUL, DMULU, MULF, DDIV, DDIVU, DIVF, SLT, SLTI, LTF, LEF, EQF, NEGR, PUSHH, POPH);
-	CONSTANT INSTAR_SIZES:		instar_size_array(1 to CANT_INSTAR) := (5, 8, 5, 8, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 8, 4, 4, 4, 4, 3, 3);
+	CONSTANT INSTAR_NAMES: 		instar_name_array(1 to CANT_INSTAR) := ("dadd  ", "daddi ", "daddu ", "daddui", "addf  ", "dsub  ", "dsubu ", "subf  ", "dmul  ", "dmulu ", "mulf  ", "ddiv  ", "ddivu ", "divf  ", "slt   ", "slti  ", "ltf   ", "lef   ", "eqf   ", "neg   ");
+	CONSTANT INSTAR_CODES:		instar_code_array(1 to CANT_INSTAR) := (DADD, DADDI, DADDU, DADDUI, ADDF, DSUB, DSUBU, SUBF, DMUL, DMULU, MULF, DDIV, DDIVU, DIVF, SLT, SLTI, LTF, LEF, EQF, NEGR);
+	CONSTANT INSTAR_SIZES:		instar_size_array(1 to CANT_INSTAR) := (5, 8, 5, 8, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 8, 4, 4, 4, 4);
 	
 	CONSTANT INSTLD_NAMES: 		instld_name_array(1 to CANT_INSTLD) := ("andr ", "andi ", "or   ", "ori  ", "xor  ", "xori ", "not  ", "dsl  ", "dsli ", "dsr  ", "dsri ", "dsls ", "dslsi", "dsrs ", "dsrsi");
 	CONSTANT INSTLD_CODES:		instld_code_array(1 to CANT_INSTLD) := (ANDR, ANDI, ORR, ORI, XORR, XORI, NOTR, DSL, DSLI, DSR, DSRI, DSLS, DSLSI, DSRS, DSRSI);
@@ -82,7 +83,11 @@ PACKAGE const_ensamblador is
 	
 	CONSTANT INSTCT_NAMES: 		instct_name_array(1 to CANT_INSTCT) := ("nop ", "halt");
 	CONSTANT INSTCT_CODES:		instct_code_array(1 to CANT_INSTCT) := (NOP, HALT);
-	CONSTANT INSTCT_SIZES:		instct_size_array(1 to CANT_INSTCT) := (2, 2);
+	CONSTANT INSTCT_SIZES:		instct_size_array(1 to CANT_INSTCT) := (2, 2); 
+	
+	CONSTANT INSTSK_NAMES: 		instsk_name_array(1 to CANT_INSTSK) := ("pushh", "poph ");
+	CONSTANT INSTSK_CODES:		instsk_code_array(1 to CANT_INSTSK) := (PUSHH, POPH);
+	CONSTANT INSTSK_SIZES:		instsk_size_array(1 to CANT_INSTSK) := (3, 3);
 	
 	
 END const_ensamblador;

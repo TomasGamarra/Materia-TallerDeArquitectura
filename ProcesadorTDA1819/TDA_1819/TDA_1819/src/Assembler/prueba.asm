@@ -6,6 +6,7 @@ A:		.word	0
 		pushh r1
 		nop
 		nop
+		nop
 		pushh r2
 		halt
 	

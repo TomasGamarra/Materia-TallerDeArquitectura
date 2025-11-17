@@ -4,7 +4,7 @@ VCS=0
 version=4
 Current Config=compile
 [Configurations]
-compile=TDA_1819
+compile=tda_1819
 [Library]
 TDA_1819=.\TDA_1819\TDA_1819.lib
 [Settings]

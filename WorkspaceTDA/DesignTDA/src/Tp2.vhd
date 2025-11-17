@@ -28,15 +28,15 @@ architecture Driver of Test_DFF is
         );
     end component;
 
-    -- ==========================
+
     -- Señales
-    -- ==========================
+
     signal Preset, Clear : Bit := '1';
     signal Clock, Data, Q, QBar : Bit;
 
-    -- ==========================
+
     -- Constantes de temporización
-    -- ==========================
+
     constant Tsetup : time := 1000 ps;  -- tiempo de setup antes del flanco
     constant Thold  : time := 1000 ps;  -- tiempo de hold después del flanco	  
 	constant TClk : time := 2002 ps;
@@ -45,9 +45,9 @@ begin
     UUT: DFF
         port map (Preset, Clear, Clock, Data, Q, QBar);
 
-    -- =====================================
+
     -- Clock fijo de 2002 ps
-    -- =====================================
+
     ClockGen: process
     begin
         Clock <= '0';
@@ -56,9 +56,9 @@ begin
         wait for (TClk/2) ;  -- mitad de periodo
     end process;
 
-    -- =====================================
+
     -- Estímulos de prueba
-    -- =====================================
+
     Stimulus: process
     begin
         -- chequeo de preset y clear		

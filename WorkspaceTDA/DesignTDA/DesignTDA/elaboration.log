@@ -1,32 +1,35 @@
-Active-HDL 15.0.261.9132 2025-09-11 17:48:12
+Active-HDL 15.0.261.9132 2025-11-06 22:20:00
 
 Elaboration top modules:
-Architecture                  Driver(Test_Latch8)
+Architecture                  Testbench(Test_Driver)
 
 
-------------------------------------------------------------------------------------------------
-Entity      | Architecture | Library   | Info | Compiler Version          | Compilation Options
-------------------------------------------------------------------------------------------------
-Test_Latch8 | Driver       | designtda |      | 15.0.261.9132 (Windows64) | -O3
-Latch8      | Estructura   | designtda |      | 15.0.261.9132 (Windows64) | -O3
-DFF         | flujodedatos | designtda |      | 15.0.261.9132 (Windows64) | -O3
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+Entity        | Architecture | Library   | Info | Compiler Version          | Compilation Options
+--------------------------------------------------------------------------------------------------
+Test_Driver   | Testbench    | designtda |      | 15.0.261.9132 (Windows64) | -O3
+Multiplicador | funcional    | designtda |      | 15.0.261.9132 (Windows64) | -O3
+Controller    | FSM          | designtda |      | 15.0.261.9132 (Windows64) | -O3
+ShiftN        | Behavior     | designtda |      | 15.0.261.9132 (Windows64) | -O3
+Adder8        | Estructura   | designtda |      | 15.0.261.9132 (Windows64) | -O3
+fulladder     | ecuacion     | designtda |      | 15.0.261.9132 (Windows64) | -O3
+--------------------------------------------------------------------------------------------------
 
-------------------------------------------------------------------------------------------------
-VHDL Package               | Library   | Info | Compiler Version          | Compilation Options
-------------------------------------------------------------------------------------------------
-standard                   | std       |      |                           | <unavailable>
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+VHDL Package                 | Library   | Info | Compiler Version          | Compilation Options
+--------------------------------------------------------------------------------------------------
+standard                     | std       |      |                           | <unavailable>
+--------------------------------------------------------------------------------------------------
 
-------------------------------------------------------------------------------------------------
-Library                    | Comment
-------------------------------------------------------------------------------------------------
-designtda                  | None
-std                        | Standard VHDL library
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+Library                      | Comment
+--------------------------------------------------------------------------------------------------
+designtda                    | None
+std                          | Standard VHDL library
+--------------------------------------------------------------------------------------------------
 
 
-Simulation Options: asim -O5 +access +r +m+test_latch8 test_latch8 driver
+Simulation Options: asim -O5 +access +r +m+test_driver test_driver testbench
 
 
 The performance of simulation is reduced. Version Student Edition

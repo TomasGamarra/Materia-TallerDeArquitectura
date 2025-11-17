@@ -1033,69 +1033,31 @@ begin
 				WAIT FOR 1 ns;
 				IDtoEX.op1 <= DataRegOutID(31 downto 0);
 			WHEN ANDR =>
-				--IDtoEX.op <= std_logic_vector(to_unsigned(EX_AND, IDtoEX.op'length));
-				--IDtoEX.fp <= '0';
-				--IDtoEX.sign <= '0';
-				--IDtoWB.datasize <= std_logic_vector(to_unsigned(4, IDtoWB.datasize'length));
-				--IDtoWB.source <= std_logic_vector(to_unsigned(WB_EX, IDtoWB.source'length));
-				--rdAux := to_integer(unsigned(IFtoIDLocal.package1(7 downto 0))) + 1;
-				--rfAux := to_integer(unsigned(IFtoIDLocal.package1(15 downto 8)));
-				--rgAux := to_integer(unsigned(IFtoIDLocal.package1(23 downto 16)));
-				--IDtoWB.mode <= std_logic_vector(to_unsigned(rdAux, IDtoWB.mode'length));
-				--IdRegID <= std_logic_vector(to_unsigned(rfAux, IdRegID'length));
-				--SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
-				--EnableRegID <= '1';
-				--WAIT FOR 1 ns;
-				--EnableRegID <= '0';
-				--WAIT FOR 1 ns;
-				--IDtoEX.op1 <= DataRegOutID(31 downto 0); 
-				--if (StallRAW = '0') then
-				--	IdRegID <= std_logic_vector(to_unsigned(rgAux, IdRegID'length));
-				--	SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
-				--	EnableRegID <= '1';
-				--	WAIT FOR 1 ns;
-				--	EnableRegID <= '0';
-				--	WAIT FOR 1 ns;
-				--	IDtoEX.op2 <= DataRegOutID(31 downto 0);   	
-				-- end if;
-				--Obtener registro rf 
-    			rfAux := to_integer(unsigned(IFtoIDLocal.package1(15 downto 8)));
-				
-    			-- Configurar operación de memoria
-    			IDtoMA.mode <= std_logic_vector(to_unsigned(MEM_MEM, IDtoMA.mode'length));
-    			IDtoMA.write <= '1';
-    			IDtoMA.datasize <= std_logic_vector(to_unsigned(2, IDtoMA.datasize'length));
-   				IDtoMA.source <= std_logic_vector(to_unsigned(MEM_ID, IDtoMA.source'length));
-    
-  			    -- Leer valor del registro rf
-  			    IdRegID <= std_logic_vector(to_unsigned(rfAux, IdRegID'length));
-  			    SizeRegID <= std_logic_vector(to_unsigned(2, SizeRegID'length));
-  			    EnableRegID <= '1';
-  			    WAIT FOR 1 ns;
-  			    EnableRegID <= '0';
-  			    WAIT FOR 1 ns;
-  			    IDtoMA.data.decode(15 downto 0) <= DataRegOutID(15 downto 0);
-    
-  			    -- Leer SP 
-  			    IdRegID <= std_logic_vector(to_unsigned(ID_SP, IdRegID'length));
-  			    SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
-  			    EnableRegID <= '1';
-  			    WAIT FOR 1 ns;
-  			    EnableRegID <= '0';
-  			    WAIT FOR 1 ns;	
-				  
-				-- Configurar para que se escriba rf en la direccion SP - 2	
-				addrAux := to_integer(unsigned(DataRegOutID(15 downto 0))) - 2;
-  			    IDtoMA.address <= std_logic_vector(to_unsigned(addrAux, IDtoMA.address'length));
- 
-   			    -- Actualizar SP en la etapa de WB
-   			    IDtoWB.mode <= std_logic_vector(to_unsigned(ID_SP + 1 , IDtoWB.mode'length));
-   			    IDtoWB.datasize <= std_logic_vector(to_unsigned(4, IDtoWB.datasize'length));
-   			    IDtoWB.source <= std_logic_vector(to_unsigned(WB_ID, IDtoWB.source'length)); 
-				IDtoWB.data.decode <= (others => '0');  -- Primero llenar con ceros
-    			IDtoWB.data.decode(15 downto 0) <= std_logic_vector(to_unsigned(addrAux, 16));
-				
-			
+				IDtoEX.op <= std_logic_vector(to_unsigned(EX_AND, IDtoEX.op'length));
+				IDtoEX.fp <= '0';
+				IDtoEX.sign <= '0';
+				IDtoWB.datasize <= std_logic_vector(to_unsigned(4, IDtoWB.datasize'length));
+				IDtoWB.source <= std_logic_vector(to_unsigned(WB_EX, IDtoWB.source'length));
+				rdAux := to_integer(unsigned(IFtoIDLocal.package1(7 downto 0))) + 1;
+				rfAux := to_integer(unsigned(IFtoIDLocal.package1(15 downto 8)));
+				rgAux := to_integer(unsigned(IFtoIDLocal.package1(23 downto 16)));
+				IDtoWB.mode <= std_logic_vector(to_unsigned(rdAux, IDtoWB.mode'length));
+				IdRegID <= std_logic_vector(to_unsigned(rfAux, IdRegID'length));
+				SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
+				EnableRegID <= '1';
+				WAIT FOR 1 ns;
+				EnableRegID <= '0';
+				WAIT FOR 1 ns;
+				IDtoEX.op1 <= DataRegOutID(31 downto 0); 
+				if (StallRAW = '0') then
+					IdRegID <= std_logic_vector(to_unsigned(rgAux, IdRegID'length));
+					SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
+					EnableRegID <= '1';
+					WAIT FOR 1 ns;
+					EnableRegID <= '0';
+					WAIT FOR 1 ns;
+					IDtoEX.op2 <= DataRegOutID(31 downto 0);   	
+				end if;    			
 			WHEN ANDI =>
 				IDtoEX.op <= std_logic_vector(to_unsigned(EX_AND, IDtoEX.op'length));
 				IDtoEX.fp <= '0';
@@ -1115,31 +1077,31 @@ begin
 				WAIT FOR 1 ns;
 				IDtoEX.op1 <= DataRegOutID(31 downto 0); 
 			WHEN ORR =>
-				--IDtoEX.op <= std_logic_vector(to_unsigned(EX_OR, IDtoEX.op'length));
-				--IDtoEX.fp <= '0';
-				--IDtoEX.sign <= '0';
-				--IDtoWB.datasize <= std_logic_vector(to_unsigned(4, IDtoWB.datasize'length));
-				--IDtoWB.source <= std_logic_vector(to_unsigned(WB_EX, IDtoWB.source'length));
-				--rdAux := to_integer(unsigned(IFtoIDLocal.package1(7 downto 0))) + 1;
-				--rfAux := to_integer(unsigned(IFtoIDLocal.package1(15 downto 8)));
-				--rgAux := to_integer(unsigned(IFtoIDLocal.package1(23 downto 16)));
-				--IDtoWB.mode <= std_logic_vector(to_unsigned(rdAux, IDtoWB.mode'length));
-				--IdRegID <= std_logic_vector(to_unsigned(rfAux, IdRegID'length));
-				--SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
-				--EnableRegID <= '1';
-				--WAIT FOR 1 ns;
-				--EnableRegID <= '0';
-				--WAIT FOR 1 ns;
-				--IDtoEX.op1 <= DataRegOutID(31 downto 0); 
-				--if (StallRAW = '0') then
-				--	IdRegID <= std_logic_vector(to_unsigned(rgAux, IdRegID'length));
-				--	SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
-				--	EnableRegID <= '1';
-				--	WAIT FOR 1 ns;
-				--	EnableRegID <= '0';
-				--	WAIT FOR 1 ns;
-				--	IDtoEX.op2 <= DataRegOutID(31 downto 0);   
-				-- end if;
+				IDtoEX.op <= std_logic_vector(to_unsigned(EX_OR, IDtoEX.op'length));
+				IDtoEX.fp <= '0';
+				IDtoEX.sign <= '0';
+				IDtoWB.datasize <= std_logic_vector(to_unsigned(4, IDtoWB.datasize'length));
+				IDtoWB.source <= std_logic_vector(to_unsigned(WB_EX, IDtoWB.source'length));
+				rdAux := to_integer(unsigned(IFtoIDLocal.package1(7 downto 0))) + 1;
+				rfAux := to_integer(unsigned(IFtoIDLocal.package1(15 downto 8)));
+				rgAux := to_integer(unsigned(IFtoIDLocal.package1(23 downto 16)));
+				IDtoWB.mode <= std_logic_vector(to_unsigned(rdAux, IDtoWB.mode'length));
+				IdRegID <= std_logic_vector(to_unsigned(rfAux, IdRegID'length));
+				SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
+				EnableRegID <= '1';
+				WAIT FOR 1 ns;
+				EnableRegID <= '0';
+				WAIT FOR 1 ns;
+				IDtoEX.op1 <= DataRegOutID(31 downto 0); 
+				if (StallRAW = '0') then
+					IdRegID <= std_logic_vector(to_unsigned(rgAux, IdRegID'length));
+					SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
+					EnableRegID <= '1';
+					WAIT FOR 1 ns;
+					EnableRegID <= '0';
+					WAIT FOR 1 ns;
+					IDtoEX.op2 <= DataRegOutID(31 downto 0);   
+				end if;
 			WHEN ORI =>
 				IDtoEX.op <= std_logic_vector(to_unsigned(EX_OR, IDtoEX.op'length));
 				IDtoEX.fp <= '0';
@@ -1529,7 +1491,45 @@ begin
 				if (StallRAW = '0') and (Pipelining) then
 					StallBrEX <= '1';
 				end if;
-			--WHEN PUSHH =>			
+			WHEN PUSHH =>  
+				-- Extraigo el nro de registro del que tengo que obtener el dato a pushear
+				rfAux := to_integer(unsigned(IFtoIDLocal.package1(7 downto 0)));
+				
+    			-- Configuro operación de memoria
+    			IDtoMA.mode <= std_logic_vector(to_unsigned(MEM_MEM, IDtoMA.mode'length));
+    			IDtoMA.write <= '1';
+    			IDtoMA.datasize <= std_logic_vector(to_unsigned(2, IDtoMA.datasize'length));
+   				IDtoMA.source <= std_logic_vector(to_unsigned(MEM_ID, IDtoMA.source'length));
+    
+  			    -- Leo el valor del registro rf
+  			    IdRegID <= std_logic_vector(to_unsigned(rfAux, IdRegID'length));
+  			    SizeRegID <= std_logic_vector(to_unsigned(2, SizeRegID'length));
+  			    EnableRegID <= '1';
+  			    WAIT FOR 1 ns;
+  			    EnableRegID <= '0';
+  			    WAIT FOR 1 ns;
+  			    IDtoMA.data.decode(15 downto 0) <= DataRegOutID(15 downto 0);
+    
+  			    -- Leo SP 
+  			    IdRegID <= std_logic_vector(to_unsigned(ID_SP, IdRegID'length));
+  			    SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
+  			    EnableRegID <= '1';
+  			    WAIT FOR 1 ns;
+  			    EnableRegID <= '0';
+  			    WAIT FOR 1 ns;	
+				  
+				-- Configuro para que se escriba rf en la direccion SP - 2	
+				addrAux := to_integer(unsigned(DataRegOutID(15 downto 0))) - 2;
+  			    IDtoMA.address <= std_logic_vector(to_unsigned(addrAux, IDtoMA.address'length));
+ 
+   			    -- Actualizo SP en la etapa de WB
+   			    IDtoWB.mode <= std_logic_vector(to_unsigned(ID_SP + 1 , IDtoWB.mode'length));
+   			    IDtoWB.datasize <= std_logic_vector(to_unsigned(4, IDtoWB.datasize'length));
+   			    IDtoWB.source <= std_logic_vector(to_unsigned(WB_ID, IDtoWB.source'length)); 
+				IDtoWB.data.decode <= (others => '0');  -- Primero llenar con ceros
+    			IDtoWB.data.decode(15 downto 0) <= std_logic_vector(to_unsigned(addrAux, 16));
+				
+			
 			--WHEN POPH =>
 			WHEN NOP =>
 				WAIT FOR 1 ns;

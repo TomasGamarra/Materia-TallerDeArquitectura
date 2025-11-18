@@ -7,7 +7,10 @@ A:		.word	0
 		nop
 		nop
 		nop
-		pushh r2
+		nop
+		sh r2, -2(SP)
+		nop
+		nop
 		nop
 		nop
 		nop

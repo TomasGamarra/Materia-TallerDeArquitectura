@@ -1156,7 +1156,7 @@ END PROCEDURE checkInstSk;
 
         -- bytes 3-4: inmediato
         InstAddrBusComp <= std_logic_vector(to_unsigned(addr_linea+3, InstAddrBusComp'length));
-        InstDataBusOutComp <= std_logic_vector(to_unsigned(addrInm, InstDataBusOutComp'length));
+        InstDataBusOutComp <= std_logic_vector(to_signed(addrInm, InstDataBusOutComp'length));
         InstSizeBusComp <= std_logic_vector(to_unsigned(2, InstSizeBusComp'length));
         InstCtrlBusComp <= WRITE_MEMORY;
         EnableCompToInstMem <= '1';

@@ -2,15 +2,15 @@
 A:		.word	0
 		.code 
 		daddi r1, r0, 6
-		daddi r2, r0, 4
-		pushh r2
-		nop
-		nop
-		nop
+		daddi r2, r0, 8
 		pushh r1
 		nop
 		nop
 		nop
-		poph  r2
+		pushh r2
+		nop
+		nop
+		nop
+		lh r1, 0(SP)
 		halt
 	

@@ -84,7 +84,7 @@ PACKAGE const_cpu is
 												-- etapa Execute
 	CONSTANT WB_MEM:		INTEGER := 3;		-- El valor a almacenar en el banco de registros de uso general se originó en la 
 												-- etapa Memory Access
-	
+	CONSTANT WB_DOUBLE: 	INTEGER := 4;		-- Utilizado para doble escritura en la etapa de WB, se extraen los valores a almacenar	de decode y execute
 											
 END const_cpu;
 

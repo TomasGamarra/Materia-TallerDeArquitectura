@@ -1530,7 +1530,49 @@ begin
     			IDtoWB.data.decode(15 downto 0) <= std_logic_vector(to_unsigned(addrAux, 16));
 				
 			
-			--WHEN POPH =>
+			WHEN POPH =>
+				-- rd = registro destino (halfword)
+    			rdAux := to_integer(unsigned(IFtoIDLocal.package1(7 downto 0))) + 1;
+
+   				-----------------------------------------------------------
+    			-- 1) LEER EL SP (para saber de dónde hacer el POP)
+    			-----------------------------------------------------------
+    			IdRegID <= std_logic_vector(to_unsigned(ID_SP, IdRegID'length));
+    			SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));  -- SP es 32 bits
+    			EnableRegID <= '1';
+    			WAIT FOR 1 ns;
+    			EnableRegID <= '0';
+   				WAIT FOR 1 ns;
+
+  			  	-- Tomo el SP actual
+    			addrAux := to_integer(unsigned(DataRegOutID(15 downto 0)));
+
+   				 -----------------------------------------------------------
+    			-- 2) CONFIGURAR MEM ACCESS PARA LEER 16 BITS DESDE SP
+   				 -----------------------------------------------------------
+    			IDtoMA.mode     <= std_logic_vector(to_unsigned(MEM_MEM, IDtoMA.mode'length));
+    			IDtoMA.read     <= '1';
+    			IDtoMA.write    <= '0';
+   				IDtoMA.datasize <= std_logic_vector(to_unsigned(2, IDtoMA.datasize'length)); -- halfword
+   				IDtoMA.source   <= std_logic_vector(to_unsigned(MEM_ID, IDtoMA.source'length));
+
+    			-- Dirección de lectura = SP
+    			IDtoMA.address  <= std_logic_vector(to_unsigned(addrAux, IDtoMA.address'length));
+
+    			-----------------------------------------------------------
+
+    			-----------------------------------------------------------
+    			-- 4) CONFIGURAR WRITEBACK PARA DOBLE ESCRITURA
+    			-----------------------------------------------------------
+    			IDtoWB.mode     <= std_logic_vector(to_unsigned(rdAux, IDtoWB.mode'length));  -- destino Rx
+    			IDtoWB.datasize <= std_logic_vector(to_unsigned(2, IDtoWB.datasize'length));  -- 16 bits
+    			IDtoWB.source   <= std_logic_vector(to_unsigned(WB_DOUBLE, IDtoWB.source'length));
+				
+				
+				IDtoWB.data.decode      <= (others => '0');
+    			-- Valor que se usará para el segundo write (SP)
+    			IDtoWB.data.decode <= std_logic_vector(to_unsigned(addrAux + 2, IDtoWB.data.execute'length));
+			
 			WHEN NOP =>
 				WAIT FOR 1 ns;
 			WHEN HALT =>  

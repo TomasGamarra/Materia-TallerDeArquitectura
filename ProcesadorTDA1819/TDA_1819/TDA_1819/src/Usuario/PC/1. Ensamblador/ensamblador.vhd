@@ -1031,12 +1031,49 @@ END PROCEDURE checkInstSk;
 			end if;
 			indice := indice + 1; 
 			if (INSTTD_SIZE = 6) then
-				if (INSTTD_NAME = "lh " or INSTTD_NAME = "sh ") then
+				if (INSTTD_NAME = "lh " or INSTTD_NAME = "sh ") then  --Unicamente para las instrucciones lh y sh
+					    -------------------------------------------------------------------
+    					-- PRIMERO: decidir si lo que viene es ETIQUETA o INMEDIATO
+    					-------------------------------------------------------------------
+    				addrInm := 0;
+    				negative := false;
 
-        -- 1) Leer inmediato (positivo o negativo)
-        addrInm := 0;
-        negative := false;
+    			-- Caso 1: ETIQUETA (empieza con letra)
+    			if (cadena(indice) >= 'A' and cadena(indice) <= 'Z') or
+       				(cadena(indice) >= 'a' and cadena(indice) <= 'z') then
 
+        		match := false;
+
+        		-- Buscar la etiqueta en la lista
+        		for j in 1 to cant_variables loop
+            		match := true;
+            		i_aux := indice;
+		   	
+            	for k in 1 to variables(j).namelength loop
+                	if (cadena(i_aux) /= variables(j).name(k)) then
+                    	match := false;
+                    	exit;
+                end if;
+                i_aux := i_aux + 1;
+            end loop;
+
+            if (match) then
+                addrInm := variables(j).address;
+                indice := indice + variables(j).namelength;
+                exit;
+            end if;
+        end loop;
+
+        if (not match) then
+            report "Error en línea " & integer'image(num_linea) &
+                   ": la etiqueta no existe"
+            severity FAILURE;
+        end if;
+
+    else
+        -------------------------------------------------------------------
+        -- Caso 2: INMEDIATO (positivo o negativo)
+        -------------------------------------------------------------------
         if (cadena(indice) = '-') then
             negative := true;
             indice := indice + 1;
@@ -1061,50 +1098,53 @@ END PROCEDURE checkInstSk;
             addrInm := -addrInm;
         end if;
 
-        -- 2) '(' obligatoria
-        if (cadena(indice) /= '(') then
-            report "Error en línea " & integer'image(num_linea) & ": falta '('"
-            severity FAILURE;
-        end if;
-        indice := indice + 1;
+    end if;
 
-        -- 3) registro base: SP o rN
-        if (cadena(indice) = 'S' and cadena(indice+1) = 'P') then
-            addrReg := 37;	   --Correspondiente a SP
-            indice := indice + 2;
 
-        elsif (cadena(indice) = 'r') then
-            indice := indice + 1;
+        			-- 2) '(' obligatoria
+        			if (cadena(indice) /= '(') then
+            			report "Error en línea " & integer'image(num_linea) & ": falta '('"
+            			severity FAILURE;
+        			end if;
+        			indice := indice + 1;
 
-            if (not isNumber(cadena(indice))) then
-                report "Error en línea " & integer'image(num_linea) & ": registro base inválido"
-                severity FAILURE;
-            end if;
+        			-- 3) registro base: SP o rN
+        			if (cadena(indice) = 'S' and cadena(indice+1) = 'P') then
+            			addrReg := 37;	   --Correspondiente a SP
+            			indice := indice + 2;
 
-            addrReg := 0;
-            for j in DIGITS_DEC'RANGE loop
-                if (cadena(indice) = DIGITS_DEC(j)) then
-                    addrReg := j-1;
-                    exit;
-                end if;
-            end loop;
-            indice := indice + 1;
+        			elsif (cadena(indice) = 'r') then
+            			indice := indice + 1;
 
-            -- soportar r10..r15
-            if (cadena(indice) /= ')') then
-                if (cadena(indice-1) /= '1') then
-                    report "Error en línea " & integer'image(num_linea) & ": registro base inválido"
-                    severity FAILURE;
-                end if;
+            		if (not isNumber(cadena(indice))) then
+                		report "Error en línea " & integer'image(num_linea) & ": registro base inválido"
+                		severity FAILURE;
+            		end if;
 
-                for j in DIGITS_DEC'RANGE loop
-                    if (cadena(indice) = DIGITS_DEC(j)) then
-                        addrReg := 10 + (j-1);
-                        exit;
-                    end if;
-                end loop;
+            		addrReg := 0;
+            		for j in DIGITS_DEC'RANGE loop
+                		if (cadena(indice) = DIGITS_DEC(j)) then
+                    		addrReg := j-1;
+                    		exit;
+                		end if;
+            		end loop;
+            		indice := indice + 1;
 
-                indice := indice + 1;
+            		-- soportar r10..r15
+            		if (cadena(indice) /= ')') then
+                		if (cadena(indice-1) /= '1') then
+                    		report "Error en línea " & integer'image(num_linea) & ": registro base inválido"
+                    		severity FAILURE;
+                	end if;
+
+                	for j in DIGITS_DEC'RANGE loop
+                    	if (cadena(indice) = DIGITS_DEC(j)) then
+                       	 	addrReg := 10 + (j-1);
+                        	exit;
+                    	end if;
+                	end loop;
+
+                	indice := indice + 1;
             end if;
 
         else

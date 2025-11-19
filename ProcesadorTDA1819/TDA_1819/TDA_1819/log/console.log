@@ -1,4 +1,107 @@
 # ELBREAD: Elaboration process.
+# ELBREAD: Error: Architecture 'usuario_architecture' of entity 'usuario' not found in library 'tda_1819'.
+# ELBREAD: Error: Elaboration process completed with errors.
+# Design: Error: Elaboration failed
+acom -O3 -e 100 -work tda_1819 -2002  $dsn/src/Packages/const_reloj.vhd $dsn/src/Packages/tipos_cpu.vhd $dsn/src/Packages/tipos_memoria.vhd $dsn/src/Packages/const_memoria.vhd $dsn/src/Packages/const_registros.vhd $dsn/src/Packages/const_flags.vhd $dsn/src/Packages/const_buses.vhd $dsn/src/Packages/const_cpu.vhd $dsn/src/Packages/tipos_ensamblador.vhd $dsn/src/Packages/repert_cpu.vhd $dsn/src/Packages/tipos_ascii.vhd $dsn/src/Packages/const_ascii.vhd $dsn/src/Packages/func_ensamblador.vhd $dsn/src/Packages/const_ensamblador.vhd $dsn/src/Usuario/usuario.vhd $dsn/src/Usuario/PC/pc.vhd "$dsn/src/Usuario/PC/1. Ensamblador/ensamblador.vhd" "$dsn/src/Usuario/PC/2. CPU/cpu.vhd" "$dsn/src/Usuario/PC/2. CPU/1. UI/ui.vhd" "$dsn/src/Usuario/PC/2. CPU/1. UI/1. Máquina de Estados/states_machine.vhd" "$dsn/src/Usuario/PC/2. CPU/1. UI/2. Registros FP/registros_fp.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/etapas.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/1. Fetch/fetch.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/2. Decode/decode.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/3. Execute/execute.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/3. Execute/1. ALU/execute_alu.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/3. Execute/2. FPU/execute_fpu.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/4. Memory Access/memory_access.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/5. Writeback/writeback.vhd" "$dsn/src/Usuario/PC/2. CPU/3. Pipeline_Registros/pipeline_registros.vhd" "$dsn/src/Usuario/PC/2. CPU/4. Atascos/atascos.vhd" "$dsn/src/Usuario/PC/2. CPU/4. Atascos/1. Estructurales/str_detector.vhd" "$dsn/src/Usuario/PC/2. CPU/4. Atascos/2. Datos/raw_waw_detector.vhd" "$dsn/src/Usuario/PC/2. CPU/5. CPU_Admin/cpu_admin.vhd" "$dsn/src/Usuario/PC/2. CPU/6. Reloj/reloj.vhd" "$dsn/src/Usuario/PC/2. CPU/7. Registros/registros.vhd" "$dsn/src/Usuario/PC/3. Buses_Admin/buses_admin.vhd" "$dsn/src/Usuario/PC/4. Memoria/memoria.vhd"
+# Compile Package "const_reloj"
+# Compile Package Body "const_reloj"
+# Error: VLM_0026: Cannot write data to the MGF file - possibly no space on disk or MGF file corrupted. In the second case, please use command vdel -all to empty library "tda_1819".
+# Error: VLM_0026: Cannot write data to the MGF file - possibly no space on disk or MGF file corrupted. In the second case, please use command vdel -all to empty library "tda_1819".
+# Compile failure 2 Errors 0 Warnings  Analysis time :  0.1 [s]
+vdel -all
+# Library contents cleared.
+acom -reorder -O3 -e 100 -work tda_1819 -2002  $dsn/src/Packages/const_reloj.vhd $dsn/src/Packages/tipos_cpu.vhd $dsn/src/Packages/tipos_memoria.vhd $dsn/src/Packages/const_memoria.vhd $dsn/src/Packages/const_registros.vhd $dsn/src/Packages/const_flags.vhd $dsn/src/Packages/const_buses.vhd $dsn/src/Packages/const_cpu.vhd $dsn/src/Packages/tipos_ensamblador.vhd $dsn/src/Packages/repert_cpu.vhd $dsn/src/Packages/tipos_ascii.vhd $dsn/src/Packages/const_ascii.vhd $dsn/src/Packages/func_ensamblador.vhd $dsn/src/Packages/const_ensamblador.vhd $dsn/src/Usuario/usuario.vhd $dsn/src/Usuario/PC/pc.vhd "$dsn/src/Usuario/PC/1. Ensamblador/ensamblador.vhd" "$dsn/src/Usuario/PC/2. CPU/cpu.vhd" "$dsn/src/Usuario/PC/2. CPU/1. UI/ui.vhd" "$dsn/src/Usuario/PC/2. CPU/1. UI/1. Máquina de Estados/states_machine.vhd" "$dsn/src/Usuario/PC/2. CPU/1. UI/2. Registros FP/registros_fp.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/etapas.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/1. Fetch/fetch.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/2. Decode/decode.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/3. Execute/execute.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/3. Execute/1. ALU/execute_alu.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/3. Execute/2. FPU/execute_fpu.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/4. Memory Access/memory_access.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/5. Writeback/writeback.vhd" "$dsn/src/Usuario/PC/2. CPU/3. Pipeline_Registros/pipeline_registros.vhd" "$dsn/src/Usuario/PC/2. CPU/4. Atascos/atascos.vhd" "$dsn/src/Usuario/PC/2. CPU/4. Atascos/1. Estructurales/str_detector.vhd" "$dsn/src/Usuario/PC/2. CPU/4. Atascos/2. Datos/raw_waw_detector.vhd" "$dsn/src/Usuario/PC/2. CPU/5. CPU_Admin/cpu_admin.vhd" "$dsn/src/Usuario/PC/2. CPU/6. Reloj/reloj.vhd" "$dsn/src/Usuario/PC/2. CPU/7. Registros/registros.vhd" "$dsn/src/Usuario/PC/3. Buses_Admin/buses_admin.vhd" "$dsn/src/Usuario/PC/4. Memoria/memoria.vhd"
+# Compile Package "const_reloj"
+# Compile Package Body "const_reloj"
+# Compile Package "tipos_cpu"
+# Compile Package Body "tipos_cpu"
+# Compile Package "tipos_memoria"
+# Compile Package Body "tipos_memoria"
+# Compile Package "const_memoria"
+# Compile Package Body "const_memoria"
+# Compile Package "const_registros"
+# Compile Package Body "const_registros"
+# Compile Package "const_flags"
+# Compile Package Body "const_flags"
+# Compile Package "const_buses"
+# Compile Package Body "const_buses"
+# Compile Package "const_cpu"
+# Compile Package Body "const_cpu"
+# Compile Package "tipos_ensamblador"
+# Compile Package Body "tipos_ensamblador"
+# Compile Package "repert_cpu"
+# Compile Package Body "repert_cpu"
+# Compile Package "tipos_ascii"
+# Compile Package Body "tipos_ascii"
+# Compile Package "const_ascii"
+# Compile Package Body "const_ascii"
+# Compile Package "func_ensamblador"
+# Compile Package Body "func_ensamblador"
+# Compile Package "const_ensamblador"
+# Compile Package Body "const_ensamblador"
+# Compile Entity "usuario"
+# Compile Architecture "USUARIO_ARCHITECTURE" of Entity "usuario"
+# Compile Entity "pc"
+# Compile Architecture "PC_ARCHITECTURE" of Entity "pc"
+# Compile Entity "ensamblador"
+# Compile Architecture "ENSAMBLADOR_ARCHITECTURE" of Entity "ensamblador"
+# Compile Entity "cpu"
+# Compile Architecture "CPU_ARCHITECTURE" of Entity "cpu"
+# Compile Entity "ui"
+# Compile Architecture "UI_ARCHITECTURE" of Entity "ui"
+# Compile Entity "states_machine"
+# Compile Architecture "STATES_MACHINE_ARCHITECTURE" of Entity "states_machine"
+# Compile Entity "registros_fp"
+# Compile Architecture "REGISTROS_FP_ARCHITECTURE" of Entity "registros_fp"
+# Compile Entity "etapas"
+# Compile Architecture "ETAPAS_ARCHITECTURE" of Entity "etapas"
+# Compile Entity "fetch"
+# Compile Architecture "fetch_architecture" of Entity "fetch"
+# Compile Entity "decode"
+# Compile Architecture "decode_architecture" of Entity "decode"
+# Compile Entity "execute"
+# Compile Architecture "EXECUTE_ARCHITECTURE" of Entity "execute"
+# Compile Entity "execute_alu"
+# Compile Architecture "EXECUTE_ALU_ARCHITECTURE" of Entity "execute_alu"
+# Compile Entity "execute_fpu"
+# Compile Architecture "EXECUTE_FPU_ARCHITECTURE" of Entity "execute_fpu"
+# Compile Entity "memory_access"
+# Compile Architecture "MEMORY_ACCESS_ARCHITECTURE" of Entity "memory_access"
+# Compile Entity "writeback"
+# Compile Architecture "WRITEBACK_ARCHITECTURE" of Entity "writeback"
+# Compile Entity "pipeline_registros"
+# Compile Architecture "pipeline_registros_architecture" of Entity "pipeline_registros"
+# Compile Entity "atascos"
+# Compile Architecture "ATASCOS_ARCHITECTURE" of Entity "atascos"
+# Compile Entity "str_detector"
+# Compile Architecture "STR_DETECTOR_ARCHITECTURE" of Entity "str_detector"
+# Compile Entity "raw_waw_detector"
+# Compile Architecture "RAW_WAW_DETECTOR_ARCHITECTURE" of Entity "raw_waw_detector"
+# Compile Entity "cpu_admin"
+# Compile Architecture "cpu_admin_architecture" of Entity "cpu_admin"
+# Compile Entity "reloj"
+# Compile Architecture "reloj_architecture" of Entity "reloj"
+# Compile Entity "registros"
+# Compile Architecture "REGISTROS_ARCHITECTURE" of Entity "registros"
+# Compile Entity "buses_admin"
+# Compile Architecture "BUSES_ADMIN_ARCHITECTURE" of Entity "buses_admin"
+# Compile Entity "memoria"
+# Compile Architecture "MEMORIA_ARCHITECTURE" of Entity "memoria"
+# Incorrect order of units detected.
+# Automatic reorder and incremental recompilation of required units in progress.
+# Top-level unit(s) detected:
+# Entity => usuario
+# Compile Architecture "UI_ARCHITECTURE" of Entity "ui"
+# Compile Architecture "ATASCOS_ARCHITECTURE" of Entity "atascos"
+# Compile Architecture "EXECUTE_ARCHITECTURE" of Entity "execute"
+# Compile Architecture "ETAPAS_ARCHITECTURE" of Entity "etapas"
+# Compile Architecture "CPU_ARCHITECTURE" of Entity "cpu"
+# Compile Architecture "PC_ARCHITECTURE" of Entity "pc"
+# Compile Architecture "USUARIO_ARCHITECTURE" of Entity "usuario"
+# Compile success 0 Errors 0 Warnings  Analysis time :  2.0 [s]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.1 [s].
+# ELBREAD: Elaboration process.
 # ELBREAD: Elaboration time 0.0 [s].
 # ELBREAD: Elaboration process.
 # ELBREAD: Elaboration time 0.0 [s].
@@ -18,41 +121,136 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # SLP: Elaboration phase ...
 # SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
 # SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# ELAB2: Elaboration final pass complete - time: 0.3 [s].
 # KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
 # Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:22 AM, Tuesday, November 18, 2025
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  3:01 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
+# add wave -noreg {/usuario/DoneCompUser}
+# add wave -noreg {/usuario/DoneCpuUser}
+# add wave -noreg {/usuario/ReadyUser}
+# VSIM: 3 object(s) traced.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory}
+# VSIM: 1 object(s) traced.
 # add wave -noreg {/usuario/UUT/UUT2/UUT7/SP}
 # VSIM: 1 object(s) traced.
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
 # add wave -noreg {/usuario/UUT/UUT2/UUT7/R1}
 # VSIM: 1 object(s) traced.
 # add wave -noreg {/usuario/UUT/UUT2/UUT7/R2}
 # VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32768)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32767)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32766)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32765)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32764)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32763)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32762)}
-# VSIM: 1 object(s) traced.
 run
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 101 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: Time: 67 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1050 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: Time: 700 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.2 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  3:04 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+run
+# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
+# EXECUTION:: Time: 73 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
+# EXECUTION:: Time: 750 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.2 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  3:04 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+run
+# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
+# EXECUTION:: Time: 79 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
+# EXECUTION:: Time: 800 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+acom -O3 -e 100 -work tda_1819 -2002  "$dsn/src/Usuario/PC/1. Ensamblador/ensamblador.vhd"
+# Compile Entity "ensamblador"
+# Compile Architecture "ENSAMBLADOR_ARCHITECTURE" of Entity "ensamblador"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:02 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+run
+# EXECUTION:: FAILURE: Error en línea 6: registro base inválido (use rN o SP)
+# EXECUTION:: Time: 27 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 27 ns + 0.
 endsim
 # VSIM: Simulation has finished.
 asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
@@ -76,48 +274,184 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
 # Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:24 AM, Tuesday, November 18, 2025
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:02 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
 run
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 107 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1100 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-endsim
-# VSIM: Simulation has finished.
-asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# VSIM: Stack memory: 32MB
-# VSIM: Retval memory: 32MB
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ns.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.1 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:25 AM, Tuesday, November 18, 2025
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
-run
-# RUNTIME: Fatal Error: RUNTIME_0067 ensamblador.vhd (1159): Value -2 out of range (0 to 2147483647).
-# KERNEL: Time: 65 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT1,  Process: Main.
-# KERNEL: Stopped at time 65 ns + 0.
+# EXECUTION:: Time: 91 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# RUNTIME: Fatal Error: RUNTIME_0047 memoria.vhd (141): Index 32769 out of range (28672 to 32768).
+# KERNEL: Time: 375 ns,  Iteration: 4,  Instance: /usuario/UUT/UUT4,  Process: DataMemory.
+# KERNEL: Stopped at time 375 ns + 4.
 # VSIM: Error: Fatal error occurred during simulation.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:03 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+run
+# EXECUTION:: FAILURE: Error en línea 6: offset inválido
+# EXECUTION:: Time: 27 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 27 ns + 0.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+acom -O3 -e 100 -work tda_1819 -2002  "$dsn/src/Usuario/PC/1. Ensamblador/ensamblador.vhd"
+# Compile Entity "ensamblador"
+# Compile Architecture "ENSAMBLADOR_ARCHITECTURE" of Entity "ensamblador"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:37 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+run
+# EXECUTION:: FAILURE: Error en la línea 2 del programa 'Assembler/prueba.asm': el tipo de dato definido para la variable no es válido
+# EXECUTION:: Time: 1 ns,  Iteration: 1,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 1 ns + 1.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:37 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+run
+# EXECUTION:: FAILURE: Error en la línea 2 del programa 'Assembler/prueba.asm': el tipo de dato definido para la variable no es válido
+# EXECUTION:: Time: 1 ns,  Iteration: 1,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 1 ns + 1.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.2 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:41 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+run
+# EXECUTION:: FAILURE: Error en la línea 2 del programa 'Assembler/prueba.asm': el tipo de dato definido para la variable no es válido
+# EXECUTION:: Time: 1 ns,  Iteration: 1,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 1 ns + 1.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:43 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+run
+# EXECUTION:: FAILURE: Error en la línea 2 del programa 'Assembler/prueba.asm': el tipo de dato definido para la variable no es válido
+# EXECUTION:: Time: 1 ns,  Iteration: 1,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 1 ns + 1.
 endsim
 # VSIM: Simulation has finished.
 acom -O3 -e 100 -work tda_1819 -2002  $dsn/src/Packages/const_reloj.vhd $dsn/src/Packages/tipos_cpu.vhd $dsn/src/Packages/tipos_memoria.vhd $dsn/src/Packages/const_memoria.vhd $dsn/src/Packages/const_registros.vhd $dsn/src/Packages/const_flags.vhd $dsn/src/Packages/const_buses.vhd $dsn/src/Packages/const_cpu.vhd $dsn/src/Packages/tipos_ensamblador.vhd $dsn/src/Packages/repert_cpu.vhd $dsn/src/Packages/tipos_ascii.vhd $dsn/src/Packages/const_ascii.vhd $dsn/src/Packages/func_ensamblador.vhd $dsn/src/Packages/const_ensamblador.vhd $dsn/src/Usuario/usuario.vhd $dsn/src/Usuario/PC/pc.vhd "$dsn/src/Usuario/PC/1. Ensamblador/ensamblador.vhd" "$dsn/src/Usuario/PC/2. CPU/cpu.vhd" "$dsn/src/Usuario/PC/2. CPU/1. UI/ui.vhd" "$dsn/src/Usuario/PC/2. CPU/1. UI/1. Máquina de Estados/states_machine.vhd" "$dsn/src/Usuario/PC/2. CPU/1. UI/2. Registros FP/registros_fp.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/etapas.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/1. Fetch/fetch.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/2. Decode/decode.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/3. Execute/execute.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/3. Execute/1. ALU/execute_alu.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/3. Execute/2. FPU/execute_fpu.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/4. Memory Access/memory_access.vhd" "$dsn/src/Usuario/PC/2. CPU/2. Etapas/5. Writeback/writeback.vhd" "$dsn/src/Usuario/PC/2. CPU/3. Pipeline_Registros/pipeline_registros.vhd" "$dsn/src/Usuario/PC/2. CPU/4. Atascos/atascos.vhd" "$dsn/src/Usuario/PC/2. CPU/4. Atascos/1. Estructurales/str_detector.vhd" "$dsn/src/Usuario/PC/2. CPU/4. Atascos/2. Datos/raw_waw_detector.vhd" "$dsn/src/Usuario/PC/2. CPU/5. CPU_Admin/cpu_admin.vhd" "$dsn/src/Usuario/PC/2. CPU/6. Reloj/reloj.vhd" "$dsn/src/Usuario/PC/2. CPU/7. Registros/registros.vhd" "$dsn/src/Usuario/PC/3. Buses_Admin/buses_admin.vhd" "$dsn/src/Usuario/PC/4. Memoria/memoria.vhd"
@@ -198,8 +532,6 @@ acom -O3 -e 100 -work tda_1819 -2002  $dsn/src/Packages/const_reloj.vhd $dsn/src
 # Compile Entity "memoria"
 # Compile Architecture "MEMORIA_ARCHITECTURE" of Entity "memoria"
 # Compile success 0 Errors 0 Warnings  Analysis time :  1.0 [s]
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
 asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # ELBREAD: Elaboration process.
 # ELBREAD: Elaboration time 0.0 [s].
@@ -221,60 +553,14 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
 # Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:27 AM, Tuesday, November 18, 2025
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:43 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
 run
-# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 107 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 679 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
-# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1100 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-# add wave -noreg {/usuario/DoneCompUser}
-# add wave -noreg {/usuario/DoneCpuUser}
-# add wave -noreg {/usuario/ReadyUser}
-# VSIM: 3 object(s) traced.
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
-run
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-endsim
-# VSIM: Simulation has finished.
-asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# VSIM: Stack memory: 32MB
-# VSIM: Retval memory: 32MB
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ns.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.1 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:28 AM, Tuesday, November 18, 2025
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
-run
-# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 107 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 679 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
-# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1100 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+# EXECUTION:: FAILURE: Error en la línea 3 del programa 'Assembler/prueba.asm': el nombre de la variable no es válido
+# EXECUTION:: Time: 3 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 3 ns + 0.
 endsim
 # VSIM: Simulation has finished.
 asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
@@ -298,33 +584,159 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
 # Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:28 AM, Tuesday, November 18, 2025
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:44 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
-# add wave -noreg {/usuario/UUT/UUT2/UUT7/SP}
-# VSIM: 1 object(s) traced.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+run
+# EXECUTION:: FAILURE: Error en la línea 7 del programa 'Assembler/prueba.asm': el nombre de la etiqueta no es válido
+# EXECUTION:: Time: 39 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 39 ns + 0.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:45 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+run
+# EXECUTION:: FAILURE: Error en la línea 18 del programa 'Assembler/prueba.asm': la última instrucción debe detener la ejecución del procesador ('halt')
+# EXECUTION:: Time: 125 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 125 ns + 0.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:46 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
 # add wave -noreg {/usuario/UUT/UUT2/UUT7/R1}
-# VSIM: 1 object(s) traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# VSIM: 0 object(s) traced.
 # add wave -noreg {/usuario/UUT/UUT2/UUT7/R2}
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
+# VSIM: 0 object(s) traced.
+# add wave -noreg {/usuario/UUT/UUT2/UUT7/R5}
 # VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32768)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32767)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32766)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32765)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32764)}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT4/Stack_Memory(32763)}
+# add wave -noreg {/usuario/UUT/UUT2/UUT7/R6}
 # VSIM: 1 object(s) traced.
 run
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 107 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 679 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
+# EXECUTION:: Time: 129 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# KERNEL: WARNING: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# KERNEL: Time: 825 ns,  Iteration: 3,  Instance: /usuario/UUT/UUT2/UUT2/UUT3/UUT1,  Process: Main.
+# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
+# EXECUTION:: Time: 1250 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:48 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
+run
+# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
+# EXECUTION:: Time: 129 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# KERNEL: WARNING: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# KERNEL: Time: 825 ns,  Iteration: 3,  Instance: /usuario/UUT/UUT2/UUT2/UUT3/UUT1,  Process: Main.
+# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
+# EXECUTION:: Time: 1250 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:50 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
+run
+# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
+# EXECUTION:: Time: 129 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
 # EXECUTION:: Time: 1100 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # KERNEL: Simulation has finished. There are no more test vectors to simulate.
@@ -351,17 +763,17 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
 # Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:32 AM, Tuesday, November 18, 2025
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:53 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
 run
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 119 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 679 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
+# EXECUTION:: Time: 129 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1200 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: Time: 1150 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # KERNEL: Simulation has finished. There are no more test vectors to simulate.
 endsim
 # VSIM: Simulation has finished.
@@ -386,17 +798,19 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
 # Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:32 AM, Tuesday, November 18, 2025
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  4:54 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
 run
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 119 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 679 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
+# EXECUTION:: Time: 129 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# KERNEL: WARNING: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+# KERNEL: Time: 875 ns,  Iteration: 3,  Instance: /usuario/UUT/UUT2/UUT2/UUT3/UUT1,  Process: Main.
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1200 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: Time: 1300 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # KERNEL: Simulation has finished. There are no more test vectors to simulate.
 endsim
 # VSIM: Simulation has finished.
@@ -416,23 +830,170 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # SLP: Elaboration phase ...
 # SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
 # SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.2 [s].
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
 # KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
 # Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:33 AM, Tuesday, November 18, 2025
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  5:03 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
+run
+# EXECUTION:: FAILURE: Error en línea 6: offset inválido
+# EXECUTION:: Time: 27 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 27 ns + 0.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  5:04 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
+run
+# EXECUTION:: FAILURE: Error en la línea 14 del programa 'Assembler/prueba.asm': la última instrucción debe detener la ejecución del procesador ('halt')
+# EXECUTION:: Time: 91 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 91 ns + 0.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  5:05 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
 run
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 119 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 679 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
+# EXECUTION:: Time: 91 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # RUNTIME: Fatal Error: RUNTIME_0047 memoria.vhd (141): Index 32769 out of range (28672 to 32768).
-# KERNEL: Time: 1075 ns,  Iteration: 4,  Instance: /usuario/UUT/UUT4,  Process: DataMemory.
-# KERNEL: Stopped at time 1075 ns + 4.
+# KERNEL: Time: 375 ns,  Iteration: 4,  Instance: /usuario/UUT/UUT4,  Process: DataMemory.
+# KERNEL: Stopped at time 375 ns + 4.
+# VSIM: Error: Fatal error occurred during simulation.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+acom -O3 -e 100 -work tda_1819 -2002  "$dsn/src/Usuario/PC/1. Ensamblador/ensamblador.vhd"
+# Compile Entity "ensamblador"
+# Compile Architecture "ENSAMBLADOR_ARCHITECTURE" of Entity "ensamblador"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57072 kB (elbread=427 elab2=56495 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  5:26 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
+run
+# EXECUTION:: FAILURE: Error en línea 6: offset inválido
+# EXECUTION:: Time: 27 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT1,  Process: Main.
+# KERNEL: Stopped at time 27 ns + 0.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+acom -O3 -e 100 -work tda_1819 -2002  "$dsn/src/Usuario/PC/1. Ensamblador/ensamblador.vhd"
+# Compile Entity "ensamblador"
+# Compile Architecture "ENSAMBLADOR_ARCHITECTURE" of Entity "ensamblador"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57070 kB (elbread=427 elab2=56494 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  5:30 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
+run
+# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
+# EXECUTION:: Time: 91 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# RUNTIME: Fatal Error: RUNTIME_0047 memoria.vhd (141): Index 32769 out of range (28672 to 32768).
+# KERNEL: Time: 375 ns,  Iteration: 4,  Instance: /usuario/UUT/UUT4,  Process: DataMemory.
+# KERNEL: Stopped at time 375 ns + 4.
 # VSIM: Error: Fatal error occurred during simulation.
 endsim
 # VSIM: Simulation has finished.
@@ -456,54 +1017,20 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:34 AM, Tuesday, November 18, 2025
+# Allocation: Simulator allocated 57070 kB (elbread=427 elab2=56494 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  5:30 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
 run
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 119 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: Time: 91 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 679 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
+# KERNEL: Time: 277 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1200 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-endsim
-# VSIM: Simulation has finished.
-asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# VSIM: Stack memory: 32MB
-# VSIM: Retval memory: 32MB
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ns.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.2 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:34 AM, Tuesday, November 18, 2025
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
-run @2us
-# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 119 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 679 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
-# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1200 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: stopped at time: 2 us
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # KERNEL: Simulation has finished. There are no more test vectors to simulate.
 endsim
 # VSIM: Simulation has finished.
@@ -527,30 +1054,59 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:34 AM, Tuesday, November 18, 2025
+# Allocation: Simulator allocated 57070 kB (elbread=427 elab2=56494 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  5:30 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
-# add wave -noreg {/usuario/UUT/UUT2/UUT7/SP}
-# VSIM: 1 object(s) traced.
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
-# add wave -noreg {/usuario/UUT/UUT2/UUT7/R1}
-# VSIM: 1 object(s) traced.
-# add wave -noreg {/usuario/UUT/UUT2/UUT7/R2}
-# VSIM: 1 object(s) traced.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
 run
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 119 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 679 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
+# EXECUTION:: Time: 91 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: FAILURE: Error: la dirección seleccionada no pertenece a la memoria de datos ni a la pila
+# EXECUTION:: Time: 375 ns,  Iteration: 4,  Instance: /usuario/UUT/UUT4,  Process: DataMemory.
+# KERNEL: Stopped at time 375 ns + 4.
+endsim
+# VSIM: Simulation has finished.
+asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 57070 kB (elbread=427 elab2=56494 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  5:31 PM, Wednesday, November 19, 2025
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
+run
+# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
+# EXECUTION:: Time: 91 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1200 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: Time: 850 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # KERNEL: Simulation has finished. There are no more test vectors to simulate.
 endsim
 # VSIM: Simulation has finished.
 asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.1 [s].
+# ELBREAD: Elaboration time 0.0 [s].
 # VSIM: Stack memory: 32MB
 # VSIM: Retval memory: 32MB
 # 
@@ -568,20 +1124,18 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:38 AM, Tuesday, November 18, 2025
+# Allocation: Simulator allocated 57070 kB (elbread=427 elab2=56494 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  5:32 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
 run
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 119 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 729 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 1027 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
+# EXECUTION:: Time: 93 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # KERNEL: Simulation has finished. There are no more test vectors to simulate.
 endsim
 # VSIM: Simulation has finished.
@@ -605,53 +1159,16 @@ asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
 # KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:39 AM, Tuesday, November 18, 2025
+# Allocation: Simulator allocated 57070 kB (elbread=427 elab2=56494 kernel=149 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\tomas\Desktop\IngenieriaEnComputacion\Repositorio-TDA\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
+#  5:32 PM, Wednesday, November 19, 2025
 #  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# Waveform file 'untitled.awc' connected to 'C:/Users/tomas/Desktop/IngenieriaEnComputacion/Repositorio-TDA/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R1" has already been traced.
+# KERNEL: Warning: KERNEL_0291 Object "/usuario/UUT/UUT2/UUT7/R2" has already been traced.
 run
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 119 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 729 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 1027 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
+# EXECUTION:: Time: 93 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1250 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-endsim
-# VSIM: Simulation has finished.
-asim -t ns -O5 +access +r +m+usuario usuario usuario_architecture
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# VSIM: Stack memory: 32MB
-# VSIM: Retval memory: 32MB
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ns.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.2 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 57068 kB (elbread=427 elab2=56492 kernel=149 sdf=0)
-# KERNEL: ASDB file was created in location D:\WindowsStuff\IngenieriaenComputacion\TercerAño\2doSemestre\TallerDeArquitectura\Repositorio\ProcesadorTDA1819\TDA_1819\TDA_1819\src\wave.asdb
-#  3:40 AM, Tuesday, November 18, 2025
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'D:/WindowsStuff/IngenieriaenComputacion/TercerAño/2doSemestre/TallerDeArquitectura/Repositorio/ProcesadorTDA1819/TDA_1819/TDA_1819/src/wave.asdb'.
-run
-# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ensamblado exitosamente
-# EXECUTION:: Time: 119 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
-# KERNEL: WARNING: NUMERIC_STD.TO_UNSIGNED: vector truncated
-# KERNEL: Time: 679 ns,  Iteration: 0,  Instance: /usuario/UUT/UUT2/UUT2/UUT2,  Process: Main.
-# EXECUTION:: WARNING: El programa 'Assembler/prueba.asm' ha sido ejecutado exitosamente
-# EXECUTION:: Time: 1200 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
+# EXECUTION:: Time: 950 ns,  Iteration: 1,  Instance: /usuario,  Process: Main.
 # KERNEL: Simulation has finished. There are no more test vectors to simulate.

@@ -1,5 +1,5 @@
 		.data
-A:		.hword	38528
+A:		.hword	8528
 B:		.hword	15093
 SUMA:		.hword	0
 MAYOR:		.hword	0
@@ -8,6 +8,7 @@ MENOR:		.hword	0
 		lh r1, A(r0)
 		lh r2, B(r0)
 		slt r3, r1, r2
+		andi r3, r3, 1
 		dadd r4, r1, r2
 		pushh r4
 		beqz r3, aux

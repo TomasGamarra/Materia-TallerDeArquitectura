@@ -1042,26 +1042,26 @@ END PROCEDURE checkInstSk;
 
         		match := false;
 
-        		-- Buscar la etiqueta en la lista
+        		 -- Buscar la etiqueta en la lista de variables conocidas
         		for j in 1 to cant_variables loop
             		match := true;
             		i_aux := indice;
-		   	
+		   			-- Comparar cada carácter de la cadena con el nombre de la variable
             		for k in 1 to variables(j).namelength loop
                 		if (cadena(i_aux) /= variables(j).name(k)) then
                     		match := false;
-                    		exit;
+                    		exit; -- Salir del loop si hay diferencia
                 		end if;
                 		i_aux := i_aux + 1;
             		end loop;
-
+					-- Si se encontró la etiqueta, asignar la dirección correspondiente
             		if (match) then
                 		addrInm := variables(j).address;
-                		indice := indice + variables(j).namelength;
-                		exit;
+                		indice := indice + variables(j).namelength; -- Avanzar el índice de lectura
+                		exit; -- Salir del loop principal
             		end if;
         		end loop;
-
+				-- Si no se encontró la etiqueta, reportar error
         		if (not match) then
             		report "Error en línea " & integer'image(num_linea) & ": la etiqueta no existe"
             		severity FAILURE;
@@ -1069,15 +1069,15 @@ END PROCEDURE checkInstSk;
 
     		else	-- Caso 2: INMEDIATO (positivo o negativo)
         		if (cadena(indice) = '-') then
-            		negative := true;
+            		negative := true; -- Marcar que el inmediato es negativo
             		indice := indice + 1;
         		end if;
-
+				-- Validar que sea un número
         		if (not isNumber(cadena(indice))) then
             		report "Error en línea " & integer'image(num_linea) & ": offset inválido"
             		severity FAILURE;
         		end if;
-
+			    -- Construir el valor numérico del inmediato
         		while isNumber(cadena(indice)) loop
             		for j in DIGITS_DEC'RANGE loop
                 		if (cadena(indice) = DIGITS_DEC(j)) then
@@ -1087,7 +1087,7 @@ END PROCEDURE checkInstSk;
            			end loop;
             		indice := indice + 1;
         		end loop;
-
+				-- Aplicar signo negativo si corresponde
         		if (negative) then
             		addrInm := -addrInm;
         		end if;
@@ -1095,14 +1095,14 @@ END PROCEDURE checkInstSk;
     		end if;
 
 
-        	-- '(' obligatorio
+        	-- Validar que el carácter '(' esté presente (inicio de registro base)
         	if (cadena(indice) /= '(') then
             	report "Error en línea " & integer'image(num_linea) & ": falta '('"
             	severity FAILURE;
         	end if;
         	indice := indice + 1;
 
-        	--registro base: SP o rN
+        	 -- Procesar registro base: puede ser SP o rN
         	if (cadena(indice) = 'S' and cadena(indice+1) = 'P') then
             	addrReg := 37;	   --Correspondiente a SP
             	indice := indice + 2;
@@ -1112,7 +1112,7 @@ END PROCEDURE checkInstSk;
                 		report "Error en línea " & integer'image(num_linea) & ": registro base inválido"
                 		severity FAILURE;
             	end if;
-
+				-- Convertir número simple a dirección
             	addrReg := 0;
             	for j in DIGITS_DEC'RANGE loop
                 	if (cadena(indice) = DIGITS_DEC(j)) then
@@ -1122,7 +1122,7 @@ END PROCEDURE checkInstSk;
             	end loop;
             	indice := indice + 1;
 
-            	-- Soporte de r10..r15
+            	-- Soporte para registros r10..r15
             	if (cadena(indice) /= ')') then
                 	if (cadena(indice-1) /= '1') then
                     	report "Error en línea " & integer'image(num_linea) & ": registro base inválido"
@@ -1144,7 +1144,7 @@ END PROCEDURE checkInstSk;
             	severity FAILURE;
            end if;
 
-        --')' obligatorio
+         -- Validar que el carácter ')' esté presente (fin del registro base)
         if (cadena(indice) /= ')') then
             report "Error en línea " & integer'image(num_linea) & ": falta ')'"
             severity FAILURE;
@@ -1205,7 +1205,7 @@ END PROCEDURE checkInstSk;
         EnableCompToInstMem <= '0';
         WAIT FOR 1 ns;
 
-        -- finalizar
+        -- Finalizar procesamiento de instrucción
         i := indice;
         check := true;
         return;

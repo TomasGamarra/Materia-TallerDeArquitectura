@@ -123,12 +123,11 @@ begin
         accessSize := to_integer(unsigned(DataSizeBusMem));
         iDataBus := 0;
         
-        -- Determinar si es acceso a pila o a datos
+        -- Determino si es acceso a pila 
         isStackAccess := (intAddress >= STACK_BEGIN and intAddress <= MEMORY_END);
         
         -- Verificación que permite acceso a datos (1000-1FFF) y pila (7000-8000)
-        if not((intAddress >= DATA_BEGIN and intAddress <= INST_BEGIN-1) or 
-               (intAddress >= STACK_BEGIN and intAddress <= MEMORY_END)) then
+        if not((intAddress >= DATA_BEGIN and intAddress <= INST_BEGIN-1) or (intAddress >= STACK_BEGIN and intAddress <= MEMORY_END)) then
             report "Error: la dirección seleccionada no pertenece a la memoria de datos ni a la pila"
             severity FAILURE;
         end if;

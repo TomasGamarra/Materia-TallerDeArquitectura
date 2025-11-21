@@ -1492,87 +1492,79 @@ begin
 					StallBrEX <= '1';
 				end if;
 			WHEN PUSHH =>  
-				-- Extraigo el nro de registro del que tengo que obtener el dato a pushear
+				-- Extraigo el id del registro a pushear (rf)
 				rfAux := to_integer(unsigned(IFtoIDLocal.package1(7 downto 0)));
 				
     			-- Configuro operación de memoria
-    			IDtoMA.mode <= std_logic_vector(to_unsigned(MEM_MEM, IDtoMA.mode'length));
-    			IDtoMA.write <= '1';
-    			IDtoMA.datasize <= std_logic_vector(to_unsigned(2, IDtoMA.datasize'length));
-   				IDtoMA.source <= std_logic_vector(to_unsigned(MEM_ID, IDtoMA.source'length));
+    			IDtoMA.mode <= std_logic_vector(to_unsigned(MEM_MEM, IDtoMA.mode'length));    --La instruccion necesita acceso a memoria en la etapa Memory Access
+    			IDtoMA.write <= '1'; 														  --Escritura
+    			IDtoMA.datasize <= std_logic_vector(to_unsigned(2, IDtoMA.datasize'length));  --Tamaño de 2 bytes por ser half-word
+   				IDtoMA.source <= std_logic_vector(to_unsigned(MEM_ID, IDtoMA.source'length)); --Aclaro que el valor a escribir se toma de la etapa de Decode
     
-  			    -- Leo el valor del registro rf
-  			    IdRegID <= std_logic_vector(to_unsigned(rfAux, IdRegID'length));
-  			    SizeRegID <= std_logic_vector(to_unsigned(2, SizeRegID'length));
-  			    EnableRegID <= '1';
+  			    -- Lectura del valor del registro a pushear (rf)
+  			    IdRegID <= std_logic_vector(to_unsigned(rfAux, IdRegID'length)); 			  --Establezco el id del registro a leer
+  			    SizeRegID <= std_logic_vector(to_unsigned(2, SizeRegID'length));			  --Establezco la cantidad de bytes que quiero leer del registro
+  			    EnableRegID <= '1';															  --Señal de lectura del registro
   			    WAIT FOR 1 ns;
   			    EnableRegID <= '0';
   			    WAIT FOR 1 ns;
-  			    IDtoMA.data.decode(15 downto 0) <= DataRegOutID(15 downto 0);
-    
-  			    -- Leo SP 
-  			    IdRegID <= std_logic_vector(to_unsigned(ID_SP, IdRegID'length));
-  			    SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));
-  			    EnableRegID <= '1';
-  			    WAIT FOR 1 ns;
-  			    EnableRegID <= '0';
-  			    WAIT FOR 1 ns;	
+  			    IDtoMA.data.decode(15 downto 0) <= DataRegOutID(15 downto 0);				  --Establezco el valor leido para la etapa de Memory Access
+    			
+				 -- Solo si no hay RAW stall calculo la direccion con SP 
+   				if (StallRAW = '0') then 
+  			    	IdRegID <= std_logic_vector(to_unsigned(ID_SP, IdRegID'length));		  --Establezco el id del registro a leer (Stack pointer)
+  			    	SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));		  --Establezco la cantidad de bytes del registro a leer
+  			    	EnableRegID <= '1';														  --Señal de lectura del registro
+  			    	WAIT FOR 1 ns;
+  			    	EnableRegID <= '0';
+  			    	WAIT FOR 1 ns;	
 				  
-				-- Configuro para que se escriba rf en la direccion SP - 2	
-				addrAux := to_integer(unsigned(DataRegOutID(15 downto 0))) - 2;
-  			    IDtoMA.address <= std_logic_vector(to_unsigned(addrAux, IDtoMA.address'length));
+					-- Configuro para que se escriba rf en la direccion SP - 2	
+					addrAux := to_integer(unsigned(DataRegOutID(15 downto 0))) - 2;
+  			    	IDtoMA.address <= std_logic_vector(to_unsigned(addrAux, IDtoMA.address'length));
  
-   			    -- Actualizo SP en la etapa de WB
-   			    IDtoWB.mode <= std_logic_vector(to_unsigned(ID_SP + 1 , IDtoWB.mode'length));
-   			    IDtoWB.datasize <= std_logic_vector(to_unsigned(4, IDtoWB.datasize'length));
-   			    IDtoWB.source <= std_logic_vector(to_unsigned(WB_ID, IDtoWB.source'length)); 
-				IDtoWB.data.decode <= (others => '0');  -- Primero llenar con ceros
-    			IDtoWB.data.decode(15 downto 0) <= std_logic_vector(to_unsigned(addrAux, 16));
-				
-			
+   			    	-- Actualizo SP en la etapa de WB
+   			    	IDtoWB.mode <= std_logic_vector(to_unsigned(ID_SP + 1 , IDtoWB.mode'length));	--Establezco el modo de WB correspondiente al registro SP (registroId + 1, porque 0 = WB_NULL en el protocolo de WB)
+   			    	IDtoWB.datasize <= std_logic_vector(to_unsigned(4, IDtoWB.datasize'length));	--Establezco la cantidad de bytes a escribir
+   			    	IDtoWB.source <= std_logic_vector(to_unsigned(WB_ID, IDtoWB.source'length));	--Establezco que el valor a escribir proviene de la etapa Decode 
+					IDtoWB.data.decode <= (others => '0');  										--Primero llenar con ceros el valor a escribir
+    				IDtoWB.data.decode(15 downto 0) <= std_logic_vector(to_unsigned(addrAux, 16));	--Agrego los primeros 2 bytes con el valor a escribir en el SP
+				end if;
+		
 			WHEN POPH =>
-				-- rd = registro destino (halfword)
+				 -- Extraigo el id del registro destino (rd) donde almacenar el valor del pop
     			rdAux := to_integer(unsigned(IFtoIDLocal.package1(7 downto 0))) + 1;
 
-   				-----------------------------------------------------------
-    			-- 1) LEER EL SP (para saber de dónde hacer el POP)
-    			-----------------------------------------------------------
-    			IdRegID <= std_logic_vector(to_unsigned(ID_SP, IdRegID'length));
-    			SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));  -- SP es 32 bits
-    			EnableRegID <= '1';
-    			WAIT FOR 1 ns;
-    			EnableRegID <= '0';
-   				WAIT FOR 1 ns;
+   				-- Solo si no hay RAW stall procedo con la lectura del SP y la configuración de la operación
+    			if (StallRAW = '0') then
+    				IdRegID <= std_logic_vector(to_unsigned(ID_SP, IdRegID'length));                --Establezco el id del registro a leer (Stack pointer)
+    				SizeRegID <= std_logic_vector(to_unsigned(4, SizeRegID'length));  				--Establezco la cantidad de bytes que quiero leer del registro (SP es de 32 bits)
+    				EnableRegID <= '1';																--Señal de lectura del registro
+    				WAIT FOR 1 ns;
+    				EnableRegID <= '0';
+   					WAIT FOR 1 ns;
+				  
+  			  		 -- Obtengo el valor actual del SP para determinar desde dónde realizar el POP
+    				addrAux := to_integer(unsigned(DataRegOutID(15 downto 0)));
 
-  			  	-- Tomo el SP actual
-    			addrAux := to_integer(unsigned(DataRegOutID(15 downto 0)));
+   				 	 -- Configuro operación de memoria
+    				IDtoMA.mode     <= std_logic_vector(to_unsigned(MEM_MEM, IDtoMA.mode'length));  --La instrucción requiere acceso a memoria en la etapa Memory Access
+    				IDtoMA.read     <= '1';															--Lectura
+    				IDtoMA.write    <= '0';
+   					IDtoMA.datasize <= std_logic_vector(to_unsigned(2, IDtoMA.datasize'length));    --Tamaño de 2 bytes por ser half-word
+   					IDtoMA.source   <= std_logic_vector(to_unsigned(MEM_ID, IDtoMA.source'length));	--Aclaro que el dato leído será consumido en etapas posteriores
 
-   				 -----------------------------------------------------------
-    			-- 2) CONFIGURAR MEM ACCESS PARA LEER 16 BITS DESDE SP
-   				 -----------------------------------------------------------
-    			IDtoMA.mode     <= std_logic_vector(to_unsigned(MEM_MEM, IDtoMA.mode'length));
-    			IDtoMA.read     <= '1';
-    			IDtoMA.write    <= '0';
-   				IDtoMA.datasize <= std_logic_vector(to_unsigned(2, IDtoMA.datasize'length)); -- halfword
-   				IDtoMA.source   <= std_logic_vector(to_unsigned(MEM_ID, IDtoMA.source'length));
+    				-- Dirección de lectura = SP
+    				IDtoMA.address  <= std_logic_vector(to_unsigned(addrAux, IDtoMA.address'length));
 
-    			-- Dirección de lectura = SP
-    			IDtoMA.address  <= std_logic_vector(to_unsigned(addrAux, IDtoMA.address'length));
-
-    			-----------------------------------------------------------
-
-    			-----------------------------------------------------------
-    			-- 4) CONFIGURAR WRITEBACK PARA DOBLE ESCRITURA
-    			-----------------------------------------------------------
-    			IDtoWB.mode     <= std_logic_vector(to_unsigned(rdAux, IDtoWB.mode'length));  -- destino Rx
-    			IDtoWB.datasize <= std_logic_vector(to_unsigned(2, IDtoWB.datasize'length));  -- 16 bits
-    			IDtoWB.source   <= std_logic_vector(to_unsigned(WB_DOUBLE, IDtoWB.source'length));
-				
-				
-				IDtoWB.data.decode      <= (others => '0');
-    			-- Valor que se usará para el segundo write (SP)
-    			IDtoWB.data.decode <= std_logic_vector(to_unsigned(addrAux + 2, IDtoWB.data.execute'length));
-			
+    				-- Configuro Writeback para doble escritura (registro destino y SP)
+    				IDtoWB.mode     <= std_logic_vector(to_unsigned(rdAux, IDtoWB.mode'length));   --Establezco el modo de WB correspondiente al registro destino (rd)
+    				IDtoWB.datasize <= std_logic_vector(to_unsigned(2, IDtoWB.datasize'length));   --Establezco la cantidad de bytes a escribir (half-word)
+    				IDtoWB.source   <= std_logic_vector(to_unsigned(WB_DOUBLE, IDtoWB.source'length));--Indico que esta instrucción realiza doble escritura (implementado especificamente para segunda escritura en SP)				
+					IDtoWB.data.decode      <= (others => '0');										--Inicializo en cero el valor del segundo write (SP)
+    				IDtoWB.data.decode <= std_logic_vector(to_unsigned(addrAux + 2, IDtoWB.data.execute'length)); --Segundo write: SP = SP + 2
+					
+				 end if;
 			WHEN NOP =>
 				WAIT FOR 1 ns;
 			WHEN HALT =>  

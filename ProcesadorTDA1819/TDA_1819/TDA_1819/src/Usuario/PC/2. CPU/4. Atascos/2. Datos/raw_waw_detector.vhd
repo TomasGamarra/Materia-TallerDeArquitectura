@@ -194,7 +194,7 @@ architecture RAW_WAW_DETECTOR_ARCHITECTURE of raw_waw_detector is
 	SIGNAL F14_WrPending:		UNSIGNED(3 downto 0) := B"0000";
 	SIGNAL F15_WrPending:		UNSIGNED(3 downto 0) := B"0000";
 	SIGNAL FPFLAGS_WrPending:	UNSIGNED(3 downto 0) := B"0000";
-
+    SIGNAL SP_WrPending:		UNSIGNED(3 downto 0) := B"0000"; --Añado señal para el SP
 	
 begin
 	
@@ -387,9 +387,15 @@ begin
 					IdRegRAW <= IdRegID; 							  
 				end if;
 			WHEN ID_BP =>
-				NULL;
-			WHEN ID_SP =>
-				NULL;
+				if (SP_WrPending > 0) then
+					StallRAW <= '1';
+					IdRegRAW <= IdRegID; 							  
+				end if;
+			WHEN ID_SP => --Añado logica para el SP
+				if (SP_WrPending > 0) then
+					StallRAW <= '1';
+					IdRegRAW <= IdRegID;
+				end if;
 			WHEN ID_RA =>
 				NULL;
 			WHEN OTHERS =>
@@ -494,8 +500,8 @@ begin
 					NULL;
 				WHEN ID_BP =>
 					NULL;
-				WHEN ID_SP =>
-					NULL;
+				WHEN ID_SP => --Añado logica para el SP
+					SP_WrPending <= SP_WrPending + 1;
 				WHEN ID_RA =>
 					NULL;
 				WHEN OTHERS =>
@@ -1005,8 +1011,11 @@ begin
 					FPFLAGS_WrPending <= FPFLAGS_WrPending - 1;
 				WHEN ID_BP =>
 					NULL;
-				WHEN ID_SP =>
-					NULL;
+				WHEN ID_SP => --Añado logica para el SP
+					if ((SP_WrPending = 1) and (StallRAW = '1') and (to_integer(unsigned(IdRegRAW)) = ID_SP)) then
+						StallRAW <= '0';
+					end if;	 
+					SP_WrPending <= SP_WrPending - 1;
 				WHEN ID_RA =>
 					NULL;
 				WHEN OTHERS =>

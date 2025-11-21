@@ -1032,9 +1032,7 @@ END PROCEDURE checkInstSk;
 			indice := indice + 1; 
 			if (INSTTD_SIZE = 6) then
 				if (INSTTD_NAME = "lh " or INSTTD_NAME = "sh ") then  --Unicamente para las instrucciones lh y sh
-					    -------------------------------------------------------------------
-    					-- PRIMERO: decidir si lo que viene es ETIQUETA o INMEDIATO
-    					-------------------------------------------------------------------
+    				-- Decidir si lo que viene es ETIQUETA o INMEDIATO
     				addrInm := 0;
     				negative := false;
 
@@ -1049,92 +1047,86 @@ END PROCEDURE checkInstSk;
             		match := true;
             		i_aux := indice;
 		   	
-            	for k in 1 to variables(j).namelength loop
-                	if (cadena(i_aux) /= variables(j).name(k)) then
-                    	match := false;
-                    	exit;
-                end if;
-                i_aux := i_aux + 1;
-            end loop;
-
-            if (match) then
-                addrInm := variables(j).address;
-                indice := indice + variables(j).namelength;
-                exit;
-            end if;
-        end loop;
-
-        if (not match) then
-            report "Error en línea " & integer'image(num_linea) &
-                   ": la etiqueta no existe"
-            severity FAILURE;
-        end if;
-
-    else
-        -------------------------------------------------------------------
-        -- Caso 2: INMEDIATO (positivo o negativo)
-        -------------------------------------------------------------------
-        if (cadena(indice) = '-') then
-            negative := true;
-            indice := indice + 1;
-        end if;
-
-        if (not isNumber(cadena(indice))) then
-            report "Error en línea " & integer'image(num_linea) & ": offset inválido"
-            severity FAILURE;
-        end if;
-
-        while isNumber(cadena(indice)) loop
-            for j in DIGITS_DEC'RANGE loop
-                if (cadena(indice) = DIGITS_DEC(j)) then
-                    addrInm := addrInm * 10 + (j-1);
-                    exit;
-                end if;
-            end loop;
-            indice := indice + 1;
-        end loop;
-
-        if (negative) then
-            addrInm := -addrInm;
-        end if;
-
-    end if;
-
-
-        			-- 2) '(' obligatoria
-        			if (cadena(indice) /= '(') then
-            			report "Error en línea " & integer'image(num_linea) & ": falta '('"
-            			severity FAILURE;
-        			end if;
-        			indice := indice + 1;
-
-        			-- 3) registro base: SP o rN
-        			if (cadena(indice) = 'S' and cadena(indice+1) = 'P') then
-            			addrReg := 37;	   --Correspondiente a SP
-            			indice := indice + 2;
-
-        			elsif (cadena(indice) = 'r') then
-            			indice := indice + 1;
-
-            		if (not isNumber(cadena(indice))) then
-                		report "Error en línea " & integer'image(num_linea) & ": registro base inválido"
-                		severity FAILURE;
-            		end if;
-
-            		addrReg := 0;
-            		for j in DIGITS_DEC'RANGE loop
-                		if (cadena(indice) = DIGITS_DEC(j)) then
-                    		addrReg := j-1;
+            		for k in 1 to variables(j).namelength loop
+                		if (cadena(i_aux) /= variables(j).name(k)) then
+                    		match := false;
                     		exit;
                 		end if;
+                		i_aux := i_aux + 1;
             		end loop;
-            		indice := indice + 1;
 
-            		-- soportar r10..r15
-            		if (cadena(indice) /= ')') then
-                		if (cadena(indice-1) /= '1') then
-                    		report "Error en línea " & integer'image(num_linea) & ": registro base inválido"
-                    		severity FAILURE;
+            		if (match) then
+                		addrInm := variables(j).address;
+                		indice := indice + variables(j).namelength;
+                		exit;
+            		end if;
+        		end loop;
+
+        		if (not match) then
+            		report "Error en línea " & integer'image(num_linea) & ": la etiqueta no existe"
+            		severity FAILURE;
+        		end if;
+
+    		else	-- Caso 2: INMEDIATO (positivo o negativo)
+        		if (cadena(indice) = '-') then
+            		negative := true;
+            		indice := indice + 1;
+        		end if;
+
+        		if (not isNumber(cadena(indice))) then
+            		report "Error en línea " & integer'image(num_linea) & ": offset inválido"
+            		severity FAILURE;
+        		end if;
+
+        		while isNumber(cadena(indice)) loop
+            		for j in DIGITS_DEC'RANGE loop
+                		if (cadena(indice) = DIGITS_DEC(j)) then
+                    		addrInm := addrInm * 10 + (j-1);
+                    		exit;
+                		end if;
+           			end loop;
+            		indice := indice + 1;
+        		end loop;
+
+        		if (negative) then
+            		addrInm := -addrInm;
+        		end if;
+
+    		end if;
+
+
+        	-- '(' obligatorio
+        	if (cadena(indice) /= '(') then
+            	report "Error en línea " & integer'image(num_linea) & ": falta '('"
+            	severity FAILURE;
+        	end if;
+        	indice := indice + 1;
+
+        	--registro base: SP o rN
+        	if (cadena(indice) = 'S' and cadena(indice+1) = 'P') then
+            	addrReg := 37;	   --Correspondiente a SP
+            	indice := indice + 2;
+        	elsif (cadena(indice) = 'r') then
+            	indice := indice + 1;
+				if (not isNumber(cadena(indice))) then
+                		report "Error en línea " & integer'image(num_linea) & ": registro base inválido"
+                		severity FAILURE;
+            	end if;
+
+            	addrReg := 0;
+            	for j in DIGITS_DEC'RANGE loop
+                	if (cadena(indice) = DIGITS_DEC(j)) then
+                    	addrReg := j-1;
+                    	exit;
+                	end if;
+            	end loop;
+            	indice := indice + 1;
+
+            	-- Soporte de r10..r15
+            	if (cadena(indice) /= ')') then
+                	if (cadena(indice-1) /= '1') then
+                    	report "Error en línea " & integer'image(num_linea) & ": registro base inválido"
+                    	severity FAILURE;
                 	end if;
 
                 	for j in DIGITS_DEC'RANGE loop
@@ -1145,24 +1137,23 @@ END PROCEDURE checkInstSk;
                 	end loop;
 
                 	indice := indice + 1;
-            end if;
+            	end if;
 
-        else
-            report "Error en línea " & integer'image(num_linea) &
-                   ": registro base inválido (use rN o SP)"
-            severity FAILURE;
-        end if;
+       	   else
+            	report "Error en línea " & integer'image(num_linea) & ": registro base inválido (use rN o SP)"
+            	severity FAILURE;
+           end if;
 
-        -- 4) ')'
+        --')' obligatorio
         if (cadena(indice) /= ')') then
             report "Error en línea " & integer'image(num_linea) & ": falta ')'"
             severity FAILURE;
         end if;
         indice := indice + 1;
 
-        ------------------------------------------------------------
-        -- 5) Escritura de los 6 bytes de LH o SH
-        ------------------------------------------------------------
+
+        --Escritura de los 6 bytes de LH o SH
+
 
         -- byte 0: tamaño
         InstAddrBusComp <= std_logic_vector(to_unsigned(addr_linea, InstAddrBusComp'length));
@@ -1219,7 +1210,7 @@ END PROCEDURE checkInstSk;
         check := true;
         return;
 
-    end if;  -- cierre del IF especial de LH/SH
+    end if;
 				for j in 1 to cant_variables loop
 					match := true;
 					i_aux := indice;

@@ -83,7 +83,9 @@ PACKAGE const_ensamblador is
 	
 	CONSTANT INSTCT_NAMES: 		instct_name_array(1 to CANT_INSTCT) := ("nop ", "halt");
 	CONSTANT INSTCT_CODES:		instct_code_array(1 to CANT_INSTCT) := (NOP, HALT);
-	CONSTANT INSTCT_SIZES:		instct_size_array(1 to CANT_INSTCT) := (2, 2); 
+	CONSTANT INSTCT_SIZES:		instct_size_array(1 to CANT_INSTCT) := (2, 2);
+	
+	--Constantes para las operaciones de pila
 	
 	CONSTANT INSTSK_NAMES: 		instsk_name_array(1 to CANT_INSTSK) := ("pushh", "poph ");
 	CONSTANT INSTSK_CODES:		instsk_code_array(1 to CANT_INSTSK) := (PUSHH, POPH);

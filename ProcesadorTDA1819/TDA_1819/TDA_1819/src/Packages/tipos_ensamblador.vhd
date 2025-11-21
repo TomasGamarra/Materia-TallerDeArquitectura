@@ -42,6 +42,7 @@ PACKAGE tipos_ensamblador is
 	TYPE instct_code_array IS ARRAY (POSITIVE RANGE <>) OF STD_LOGIC_VECTOR(7 downto 0);
 	TYPE instct_size_array IS ARRAY (POSITIVE RANGE <>) OF INTEGER;	 
 	
+	--Nuevos tipos para las operaciones de pila
 	TYPE instsk_name_array IS ARRAY (POSITIVE RANGE <>) OF STRING(1 to 5);
 	TYPE instsk_code_array IS ARRAY (POSITIVE RANGE <>) OF STD_LOGIC_VECTOR(7 downto 0);
 	TYPE instsk_size_array IS ARRAY (POSITIVE RANGE <>) OF INTEGER;

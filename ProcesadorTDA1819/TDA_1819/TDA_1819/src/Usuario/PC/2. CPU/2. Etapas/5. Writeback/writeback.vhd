@@ -245,35 +245,32 @@ begin
 					end loop;
 				WHEN WB_DOUBLE =>
 
-    			-- Cargar el dato leído de memoria
+    			--Cargar el dato leído de memoria
     			for i in SizeBits-1 downto 0 loop
         			DataRegInWB(i) <= RecInWBAct.data.memaccess(i);
     			end loop;
 
-    			-- Escribir en el registro destino normal (Rx)
-    			--IdRegWB <= std_logic_vector(to_unsigned(to_integer(unsigned(RecInWBAct.id)),IdRegWB'length));
-
+    			-- Escribir en el registro destino rd			
     			EnableRegWB <= '1';
     			WAIT FOR 1 ns;
     			EnableRegWB <= '0';
    			 	WAIT FOR 1 ns;
 				
-				-- SEGUNDA ESCRITURA: SP (dato proveniente de EXECUTE = SP + 2)
-   
-    			-- SP siempre es 32 bits
-    			SizeBits := 32;
+				-- SEGUNDA ESCRITURA: SP (dato proveniente de DECODE = SP + 2)
+    			SizeBits := 32; -- SP siempre es 32 bits
 				SizeRegWB <= std_logic_vector(to_unsigned(4,SizeRegWB'length));
+				--Cargar el dato que se establecio en la etapa DECODE (nuevo valor del SP)
     			for i in SizeBits-1 downto 0 loop
         			DataRegInWB(i) <= RecInWBAct.data.decode(i);
     			end loop; 
 				
-    			IdRegWB <= std_logic_vector(to_unsigned(37,IdRegWB'length));  --37 es para SP
+    			IdRegWB <= std_logic_vector(to_unsigned(37,IdRegWB'length));  --El id 37 es para SP
 				
 				WHEN OTHERS =>
 					report "Error: la configuración de la etapa de almacenamiento en registro no es válida"
 					severity FAILURE;
 			END CASE; 
-			
+			--Al salir del case se hace la escritura del nuevo valor del SP
 			EnableRegWB <= '1';
 			WAIT FOR 1 ns;
 			EnableRegWB <= '0';

@@ -1562,7 +1562,14 @@ begin
     				IDtoWB.datasize <= std_logic_vector(to_unsigned(2, IDtoWB.datasize'length));   --Establezco la cantidad de bytes a escribir (half-word)
     				IDtoWB.source   <= std_logic_vector(to_unsigned(WB_DOUBLE, IDtoWB.source'length));--Indico que esta instrucción realiza doble escritura (implementado especificamente para segunda escritura en SP)				
 					IDtoWB.data.decode      <= (others => '0');										--Inicializo en cero el valor del segundo write (SP)
-    				IDtoWB.data.decode <= std_logic_vector(to_unsigned(addrAux + 2, IDtoWB.data.execute'length)); --Segundo write: SP = SP + 2
+    				IDtoWB.data.decode <= std_logic_vector(to_unsigned(addrAux + 2, IDtoWB.data.execute'length)); --Segundo write: SP = SP + 2	
+					
+					IdInstIncWrPend <= POPH ;
+					IdRegIncWrPend  <= std_logic_vector(to_unsigned(ID_SP + 1, IdRegIncWrPend'length));
+                    EnableIncWrPend <= '1';
+                    wait for 1 ns;
+                    EnableIncWrPend <= '0';
+                    wait for 1 ns; 
 					
 				 end if;
 			WHEN NOP =>

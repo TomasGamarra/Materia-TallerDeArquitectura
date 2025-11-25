@@ -37,20 +37,12 @@ incisoh:	lh r8, 4(SP)
 		beqz r5, Cero
 Uno:	sh r5, 4(SP)
 		poph r7
-		nop
-		nop
-		nop
 		poph r6
 		jmp fin
 Cero:	sh r0, 4(SP)
 		poph r6
-		nop
-		nop
-		nop
 		poph r7
 fin:		nop
-		nop
-		nop
 		poph r4
 		halt
 	
